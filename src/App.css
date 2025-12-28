@@ -17,3 +17,7 @@ body {
   height: fit-content;
   min-width: 100%;
 }
+
+main {
+  padding-top: 80px;
+}

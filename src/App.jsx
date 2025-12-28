@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from './components/Header'
+import TopSection from './components/Hero'
 import './App.css'
 
 function App() {
@@ -10,9 +11,9 @@ function App() {
 <div className="App">
         <Header/>
         
-        {/* Rest of your app */}
+
         <main>
-          {/* Your routes/content here */}
+                  <TopSection/>
         </main>
       </div>
     </>
