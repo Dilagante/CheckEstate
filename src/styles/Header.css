@@ -1,5 +1,5 @@
 header {
-  background-color: rgba(22, 3, 37, 0.788);
+  background-color: rgb(44, 20, 69);
   height: 80px;
   overflow: hidden;
   position: fixed; /* Keep Header in the same position */
@@ -17,7 +17,7 @@ nav {
   float: right;
   margin-right: 1%;
   display: flex;
-  height: 100px;
+  height: 80px;
 }
 
 /* Hide list style */
