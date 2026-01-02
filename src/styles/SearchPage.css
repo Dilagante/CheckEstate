@@ -1,7 +1,6 @@
 /* SEARCH PAGE STYLES */
 
 .search-page {
-  margin-top: 80px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

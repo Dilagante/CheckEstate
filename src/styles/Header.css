@@ -2,7 +2,7 @@ header {
   background-color: rgb(44, 20, 69);
   height: 80px;
   overflow: hidden;
-  position: fixed; /* Keep Header in the same position */
+  position: sticky; /* Keep Header in the same position */
   top: 0;
   width: 100%;
   z-index: 50; /* Keep Header above other elements */

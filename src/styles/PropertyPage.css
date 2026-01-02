@@ -1,5 +1,4 @@
 .property-page {
-  margin-top: 80px;
   min-height: 100vh;
   background: #f9fafb;
 }
@@ -14,6 +13,8 @@
   color: #374151;
   font-weight: 500;
   padding: 0.5rem 1rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .back-button:hover {

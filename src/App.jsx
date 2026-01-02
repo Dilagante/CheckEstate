@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SearchPage from './pages/SearchPage'
 import PropertyPage from './pages/PropertyPage'
+import ScrollToTop from './components/ScrollToTop'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
@@ -10,6 +11,7 @@ import './App.css'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Search/Home Page */}
         <Route path="/" element={<SearchPage />} />
