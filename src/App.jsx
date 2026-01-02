@@ -19,7 +19,7 @@ function App() {
         {/* Individual Property Detail Page */}
         <Route path="/property/:id" element={<PropertyPage />} />
         
-        {/* 404 Not Found (Optional) */}
+        {/* 404 Not Found */}
         <Route path="*" element={
           <div style={{ 
             padding: '4rem 2rem', 
