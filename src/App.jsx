@@ -1,34 +1,42 @@
-import { useState } from "react";
-import { Container } from "react-bootstrap";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import PropertyList from "./components/PropertyList";
-import propertiesData from "./data/properties.json";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import SearchPage from './pages/SearchPage'
+import PropertyPage from './pages/PropertyPage'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
 
+/**
+ * Main App Component with Routing
+ */
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div className="App">
-        <Header />
-
-        <main>
-          <Hero />
-          <Container fluid style={{padding: "2rem", background: "#f9fafb",minHeight: "100vh",}}
-          >
-            <h1 style={{textAlign: "center", marginBottom: "2rem", color: "#111827",}}>
-              🏠 Estate Agent Properties
-            </h1>
-
-            <PropertyList properties={propertiesData.properties} />
-          </Container>
-        </main>
-      </div>
-    </>
-  );
+    <Router>
+      <Routes>
+        {/* Search/Home Page */}
+        <Route path="/" element={<SearchPage />} />
+        
+        {/* Individual Property Detail Page */}
+        <Route path="/property/:id" element={<PropertyPage />} />
+        
+        {/* 404 Not Found (Optional) */}
+        <Route path="*" element={
+          <div style={{ 
+            padding: '4rem 2rem', 
+            textAlign:  'center',
+            minHeight: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <div>
+              <h1>404 - Page Not Found</h1>
+              <p>These are not the pages you are looking for.</p>
+              <a href="/" style={{ color: '#2563eb' }}>← Go Home</a>
+            </div>
+          </div>
+        } />
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App

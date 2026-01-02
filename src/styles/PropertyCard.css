@@ -188,6 +188,29 @@ line-clamp: 2;
   content: '♥';
 }
 
+/* Remove default link styling */
+.property-card__image-link {
+  text-decoration: none;
+  display: block;
+}
+
+.property-card__location-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.property-card__location-link:hover .property-card__location {
+  color: #2563eb;
+}
+
+/* Make View Details button look like a link */
+.property-card__btn--primary {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*RESPONSIVE STYLES*/
 
 @media (max-width: 1024px) {

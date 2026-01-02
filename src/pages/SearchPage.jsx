@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
-import PropertyList from '../components/PropertyList/PropertyList'
+import PropertyList from '../components/PropertyList'
 import propertiesData from '../data/properties.json'
 import '../styles/SearchPage.css'
 
