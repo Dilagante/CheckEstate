@@ -21,7 +21,9 @@ function PropertyCard({ property }) {
           alt={property. location}
           className="property-card__image"
         />
-
+        <span className="property-card__badge">
+          {property.type}
+        </span>
       </div>
 
       {/* Property Details */}
