@@ -1,43 +1,34 @@
-import { useState } from 'react'
-import Header from './components/Header'
-import TopSection from './components/Hero'
-import './App.css'
-import PropertyCard from './components/PropertyCard'
+import { useState } from "react";
+import { Container } from "react-bootstrap";
+import Header from "./components/Header";
+import TopSection from "./components/Hero";
+import PropertyList from "./components/PropertyList";
+import propertiesData from "./data/properties.json";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const sampleProperty = {
-    id: "prop1",
-    type: "House",
-    bedrooms: 3,
-    price: 750000,
-    tenure: "Freehold",
-    description: "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland.",
-    location: "Petts Wood Road, Petts Wood, Orpington BR5",
-    picture: "headerPic.jpeg",
-    url: "properties/prop1.html",
-    added: {
-      month: "October",
-      day: 12,
-      year: 2022
-    }
-  }
+  const [count, setCount] = useState(0);
 
   return (
     <>
-<div className="App">
-        <Header/>
-        
+      <div className="App">
+        <Header />
 
         <main>
-                  <TopSection/>
+          <TopSection />
+          <Container fluid style={{padding: "2rem", background: "#f9fafb",minHeight: "100vh",}}
+          >
+            <h1 style={{textAlign: "center", marginBottom: "2rem", color: "#111827",}}>
+              🏠 Estate Agent Properties
+            </h1>
+
+            <PropertyList properties={propertiesData.properties} />
+          </Container>
         </main>
-
-
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
