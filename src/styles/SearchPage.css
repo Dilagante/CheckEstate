@@ -1,7 +1,7 @@
 /* SEARCH PAGE STYLES */
 
 .search-page {
-margin-bottom: 80px;
+  margin-top: 80px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ margin-bottom: 80px;
 
 .search-form-placeholder p {
   margin: 0;
-  color:  #6b7280;
+  color: #6b7280;
   font-size: 1.125rem;
 }
 
@@ -40,7 +40,7 @@ margin-bottom: 80px;
   background: #1f2937;
   color: white;
   padding: 2rem 0;
-  text-align:  center;
+  text-align: center;
   margin-top: 4rem;
 }
 
@@ -57,7 +57,7 @@ margin-bottom: 80px;
   }
 }
 
-@media (max-width:  768px) {
+@media (max-width: 768px) {
   .search-page__content {
     padding: 1rem 0;
   }

@@ -27,11 +27,12 @@ nav {
   margin-bottom: auto;
 }
 
-.navbarul a, header a {
-    text-decoration: none;
-    color: white;
-    display: block;
-    transition: color 0.2s;
+.navbarul a,
+header a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  transition: color 0.2s;
 }
 
 /* Top-Left title color and size */

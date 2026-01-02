@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'momotrustsans';
-    src: url('../fonts/momotrustsans-variablefont_wght-webfont.eot?') format('embedded-opentype'),
-         url('../fonts/momotrustsans-variablefont_wght-webfont.woff') format('woff2'),
-         url('../fonts/momotrustsans-variablefont_wght-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: "momotrustsans";
+  src: url("../fonts/momotrustsans-variablefont_wght-webfont.eot?")
+      format("embedded-opentype"),
+    url("../fonts/momotrustsans-variablefont_wght-webfont.woff") format("woff2"),
+    url("../fonts/momotrustsans-variablefont_wght-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 html,
