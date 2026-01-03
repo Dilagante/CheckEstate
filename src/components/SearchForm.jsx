@@ -29,42 +29,42 @@ function SearchForm({ onSearch }) {
   const priceOptions = [
     { value: 0, label: 'No minimum' },
     { value: 100000, label: '£100,000' },
-    { value:  150000, label: '£150,000' },
-    { value:  200000, label: '£200,000' },
-    { value: 250000, label:  '£250,000' },
+    { value: 150000, label: '£150,000' },
+    { value: 200000, label: '£200,000' },
+    { value:  250000, label: '£250,000' },
     { value: 300000, label: '£300,000' },
     { value: 400000, label: '£400,000' },
-    { value:  500000, label: '£500,000' },
+    { value: 500000, label: '£500,000' },
     { value: 750000, label: '£750,000' },
-    { value:  1000000, label: '£1,000,000' },
+    { value: 1000000, label: '£1,000,000' },
     { value: 1500000, label: '£1,500,000' },
     { value: 2000000, label: '£2,000,000' },
     { value: 3000000, label: '£3,000,000+' }
   ]
 
   const maxPriceOptions = [
-    { value:  Infinity, label: 'No maximum' },
+    { value:   Infinity, label: 'No maximum' },
     ... priceOptions.slice(1)
   ]
 
   // Bedroom options
   const bedroomOptions = [
-    { value:  0, label: 'Any' },
+    { value: 0, label: 'Any' },
     { value: 1, label: '1' },
     { value: 2, label: '2' },
     { value: 3, label: '3' },
     { value: 4, label: '4' },
-    { value:  5, label: '5+' }
+    { value: 5, label: '5+' }
   ]
 
   // Postcode options (common London areas)
   const postcodeOptions = [
     { value: 'BR1', label: 'BR1 - Bromley' },
-    { value:  'BR2', label: 'BR2 - Bromley' },
+    { value:   'BR2', label: 'BR2 - Bromley' },
     { value: 'BR5', label: 'BR5 - Orpington' },
-    { value: 'BR6', label: 'BR6 - Orpington' },
+    { value: 'BR6', label:   'BR6 - Orpington' },
     { value: 'SE21', label: 'SE21 - Dulwich' },
-    { value:  'E14', label: 'E14 - Canary Wharf' },
+    { value:   'E14', label: 'E14 - Canary Wharf' },
     { value: 'SW3', label: 'SW3 - Chelsea' },
     { value: 'NW1', label: 'NW1 - Camden' }
   ]
@@ -97,11 +97,12 @@ function SearchForm({ onSearch }) {
   }
 
   // Auto-search whenever any filter changes
+  /* eslint-disable-next-line react-hooks/exhaustive-deps */
   useEffect(() => {
     const searchCriteria = {
       propertyType:  propertyType?. value || 'any',
-      minPrice: minPrice?. value || 0,
-      maxPrice: maxPrice?.value || Infinity,
+      minPrice: minPrice?.value || 0,
+      maxPrice: maxPrice?. value || Infinity,
       minBedrooms: minBedrooms?. value || 0,
       maxBedrooms: maxBedrooms?.value || Infinity,
       dateFrom: dateFrom,
@@ -110,7 +111,8 @@ function SearchForm({ onSearch }) {
     }
 
     onSearch(searchCriteria)
-  }, [propertyType, minPrice, maxPrice, minBedrooms, maxBedrooms, dateFrom, dateTo, postcode, onSearch])
+  }, [propertyType, minPrice, maxPrice, minBedrooms, maxBedrooms, dateFrom, dateTo, postcode])
+  // Note: onSearch is intentionally omitted from dependencies to prevent infinite loop
 
   // Reset form
   const handleReset = () => {
@@ -134,7 +136,7 @@ function SearchForm({ onSearch }) {
     dateFrom,
     dateTo,
     postcode
-  ]. filter(Boolean).length
+  ].filter(Boolean).length
 
   return (
     <div className="search-form">
