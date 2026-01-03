@@ -1,0 +1,265 @@
+/* ================================
+   PROPERTY TABS STYLES
+   ================================ */
+
+.property-tabs-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Tab List */
+.react-tabs__tab-list {
+  display: flex;
+  border-bottom: 2px solid #e5e7eb;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #f9fafb;
+}
+
+/* Individual Tab */
+.react-tabs__tab {
+  flex: 1;
+  padding: 1rem 1 5rem;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.react-tabs__tab:hover {
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+}
+
+/* Selected Tab */
+.react-tabs__tab--selected {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+  background: white;
+}
+
+/* Remove default focus outline */
+.react-tabs__tab:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.react-tabs__tab:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+/* Tab Icons */
+.tab-icon {
+  font-size: 1.25rem;
+}
+
+/* Tab Panels */
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 2rem;
+}
+
+.tab-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: #111827;
+}
+
+.tab-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 1 5rem 0 0.75rem;
+  color: #374151;
+}
+
+/* Description */
+.description-text {
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.description-text p {
+  margin: 0 0 1rem 0;
+}
+
+/* Features List */
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.features-list li:hover {
+  transform: translateY(-0.25rem);
+}
+
+.features-list li {
+  padding: 0.75rem;
+  background: #d8d8d8;
+  border-radius: 8px;
+  color: #1a2538;
+  font-weight: 500;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+/* Floor Plan */
+.floor-plan-container {
+  text-align: center;
+}
+
+.floor-plan-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.floor-plan-image:hover {
+  transform: scale(1.02);
+}
+
+.floor-plan-note {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.no-floor-plan {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.no-floor-plan .icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.no-floor-plan p {
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Location */
+.location-address {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.location-address .icon {
+  font-size: 1.5rem;
+}
+
+.map-container {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.location-info {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.location-info p {
+  margin: 0;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* ================================
+   RESPONSIVE STYLES
+   ================================ */
+
+@media (max-width: 768px) {
+  .react-tabs__tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .tab-icon {
+    font-size: 1rem;
+  }
+
+  .tab-label {
+    display: none; /* Hide labels on mobile, show icons only */
+  }
+
+  .tab-content {
+    padding: 1.5rem;
+  }
+
+  .tab-content h3 {
+    font-size: 1.25rem;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .react-tabs__tab {
+    padding: 0.625rem 0.5rem;
+  }
+
+  .tab-content {
+    padding: 1rem;
+  }
+}

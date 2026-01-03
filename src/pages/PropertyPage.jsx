@@ -1,16 +1,17 @@
-import { useParams, Link, useNavigate } from 'react-router-dom'
-import { Container, Button } from 'react-bootstrap'
-import Header from '../components/Header'
-import PropertyGallery from '../components/PropertyGallery'
-import propertiesData from '../data/properties.json'
-import '../styles/PropertyPage.css'
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { Container, Button } from "react-bootstrap";
+import Header from "../components/Header";
+import PropertyGallery from "../components/PropertyGallery";
+import propertiesData from "../data/properties.json";
+import PropertyTabs from '../components/PropertyTabs'
+import "../styles/PropertyPage.css";
 
 function PropertyPage() {
-  const { id } = useParams() // Get property ID from URL
-  const navigate = useNavigate()
+  const { id } = useParams(); // Get property ID from URL
+  const navigate = useNavigate();
 
   // Find the property with this ID
-  const property = propertiesData.properties.find(p => p.id === id)
+  const property = propertiesData.properties.find((p) => p.id === id);
 
   // If property not found
   if (!property) {
@@ -27,13 +28,13 @@ function PropertyPage() {
           </div>
         </Container>
       </div>
-    )
+    );
   }
 
   // Format price
   const formatPrice = (price) => {
-    return `£${price.toLocaleString()}`
-  }
+    return `£${price.toLocaleString()}`;
+  };
 
   return (
     <div className="property-page">
@@ -42,8 +43,8 @@ function PropertyPage() {
 
       {/* Back Button */}
       <Container className="property-page__back">
-        <Button 
-          variant="outline-secondary" 
+        <Button
+          variant="outline-secondary"
           onClick={() => navigate(-1)}
           className="back-button"
         >
@@ -59,7 +60,8 @@ function PropertyPage() {
               <span className="property-badge">{property.type}</span>
               <h1 className="property-title">{property.location}</h1>
               <p className="property-subtitle">
-                🛏️ {property.bedrooms} Bedroom {property.type} • {property.tenure}
+                🛏️ {property.bedrooms} Bedroom {property.type} •{" "}
+                {property.tenure}
               </p>
             </div>
             <div className="property-header__price">
@@ -77,22 +79,14 @@ function PropertyPage() {
             {/* Left Column - Image & Details */}
             <div className="property-main">
               {/* Property Gallery */}
-              <PropertyGallery 
-                images={property.images || [property.picture]} 
+              <PropertyGallery
+                images={property.images || [property.picture]}
                 location={property.location}
               />
 
-              {/* Tabs Placeholder */}
-              <div className="property-tabs-placeholder">
-                <div className="tabs-header">
-                  <button className="tab active">Description</button>
-                  <button className="tab">Floor Plan</button>
-                  <button className="tab">Location</button>
-                </div>
-                <div className="tabs-content">
-                  <h3>Property Description</h3>
-                  <p>{property.description}</p>
-                </div>
+              {/* Tabs */}
+              <div className="property-tabs-section">
+                <PropertyTabs property={property} />
               </div>
             </div>
 
@@ -103,7 +97,9 @@ function PropertyPage() {
                 <ul className="property-details-list">
                   <li>
                     <span className="detail-label">Price:</span>
-                    <span className="detail-value">{formatPrice(property.price)}</span>
+                    <span className="detail-value">
+                      {formatPrice(property.price)}
+                    </span>
                   </li>
                   <li>
                     <span className="detail-label">Bedrooms:</span>
@@ -115,7 +111,7 @@ function PropertyPage() {
                   </li>
                   <li>
                     <span className="detail-label">Tenure: </span>
-                    <span className="detail-value">{property. tenure}</span>
+                    <span className="detail-value">{property.tenure}</span>
                   </li>
                   <li>
                     <span className="detail-label">Added:</span>
@@ -129,9 +125,7 @@ function PropertyPage() {
                   <button className="btn-favourite-large">
                     ♡ Add to Favourites
                   </button>
-                  <button className="btn-contact">
-                    📧 Contact Agent
-                  </button>
+                  <button className="btn-contact">📧 Contact Agent</button>
                 </div>
               </div>
             </div>
@@ -139,7 +133,7 @@ function PropertyPage() {
         </Container>
       </section>
     </div>
-  )
+  );
 }
 
-export default PropertyPage
+export default PropertyPage;
