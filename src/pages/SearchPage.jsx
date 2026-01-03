@@ -81,7 +81,7 @@ function SearchPage() {
       <Hero />
 
       {/* Main Content */}
-      <section className="search-page__content">
+      <section className="search-page__content" id='search'>
         <Container fluid>
           {/* Search Form */}
           <SearchForm onSearch={handleSearch} />

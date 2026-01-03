@@ -12,7 +12,7 @@ function Header() {
       <nav>
         <ul className="navbarul">
           <li className="navbarlink">
-            <a href="/">Search</a>
+            <a href="#search">Search</a>
           </li>
           <li className="navbarlink">
             <a href="#favourites">
