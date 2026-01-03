@@ -3,18 +3,18 @@ import '../styles/Header.css'
 function Header({ favouritesCount = 0 }) {
   return (
 <header>
-      <h1 class="title">
+      <h1 className="title">
         <a href="home.html">CheckEstate</a>
       </h1>
       <nav>
-        <ul class="navbarul">
-          <li class="navbarlink">
+        <ul className="navbarul">
+          <li className="navbarlink">
             <a href="#" target="_blank">Search</a>
           </li>
-          <li class="navbarlink">
+          <li className="navbarlink">
             <a href="#" target="_blank">Favourites</a>
           </li>
-          <li class="navbarlink">
+          <li className="navbarlink">
             <a href="#" target="_blank">About</a>
           </li>
         </ul>
