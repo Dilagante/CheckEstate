@@ -11,11 +11,10 @@
             "picture": "/images/prop1/main.jpg",
             "images": [
                 "/images/prop1/main.jpg",
-                "/images/prop1/img1.jpg",
-                "/images/prop1/img2.jpg",
-                "/images/prop1/img3.jpg",
-                "/images/prop1/img4.jpg",
-                "/images/prop1/img5.jpg"
+                "/images/prop1/1.jpg",
+                "/images/prop1/2.jpg",
+                "/images/prop1/3.jpg",
+                "/images/prop1/4.jpg"
             ],
             "floorPlan": "/images/prop1/fp.jpg",
             "url":  "properties/prop1.html",
@@ -36,11 +35,10 @@
             "picture": "/images/prop2/main.jpg",
             "images":  [
                 "/images/prop2/main.jpg",
-                "/images/prop2/img1.jpg",
-                "/images/prop2/img2.jpg",
-                "/images/prop2/img3.jpg",
-                "/images/prop2/img4.jpg",
-                "/images/prop2/img5.jpg"
+                "/images/prop2/1.jpg",
+                "/images/prop2/2.jpg",
+                "/images/prop2/3.jpg",
+                "/images/prop2/4.jpg"
             ],
             "floorPlan": "/images/prop2/fp.jpg",
             "url": "properties/prop2.html",
@@ -61,11 +59,10 @@
             "picture": "/images/prop3/main.jpg",
             "images": [
                 "/images/prop3/main.jpg",
-                "/images/prop3/img1.jpg",
-                "/images/prop3/img2.jpg",
-                "/images/prop3/img3.jpg",
-                "/images/prop3/img4.jpg",
-                "/images/prop3/img5.jpg"
+                "/images/prop3/1.jpg",
+                "/images/prop3/2.jpg",
+                "/images/prop3/3.jpg",
+                "/images/prop3/4.jpg"
             ],
             "floorPlan": "/images/prop3/fp.jpg",
             "url": "properties/prop3.html",
@@ -86,11 +83,10 @@
             "picture": "/images/prop4/main.jpg",
             "images": [
                 "/images/prop4/main.jpg",
-                "/images/prop4/img1.jpg",
-                "/images/prop4/img2.jpg",
-                "/images/prop4/img3.jpg",
-                "/images/prop4/img4.jpg",
-                "/images/prop4/img5.jpg"
+                "/images/prop4/1.jpg",
+                "/images/prop4/2.jpg",
+                "/images/prop4/3.jpg",
+                "/images/prop4/4.jpg"
             ],
             "floorPlan": "/images/prop4/fp.jpg",
             "url": "properties/prop4.html",
@@ -111,11 +107,10 @@
             "picture": "/images/prop5/main.jpg",
             "images": [
                 "/images/prop5/main.jpg",
-                "/images/prop5/img1.jpg",
-                "/images/prop5/img2.jpg",
-                "/images/prop5/img3.jpg",
-                "/images/prop5/img4.jpg",
-                "/images/prop5/img5.jpg"
+                "/images/prop5/1.jpg",
+                "/images/prop5/2.jpg",
+                "/images/prop5/3.jpg",
+                "/images/prop5/4.jpg"
             ],
             "floorPlan": "/images/prop5/fp.jpg",
             "url": "properties/prop5.html",
@@ -136,11 +131,10 @@
             "picture": "/images/prop6/main.jpg",
             "images": [
                 "/images/prop6/main. jpg",
-                "/images/prop6/img1.jpg",
-                "/images/prop6/img2.jpg",
-                "/images/prop6/img3.jpg",
-                "/images/prop6/img4.jpg",
-                "/images/prop6/img5.jpg"
+                "/images/prop6/1.jpg",
+                "/images/prop6/2.jpg",
+                "/images/prop6/3.jpg",
+                "/images/prop6/4.jpg"
             ],
             "floorPlan": "/images/prop6/fp. jpg",
             "url": "properties/prop6.html",
@@ -161,11 +155,10 @@
             "picture": "/images/prop7/main.jpg",
             "images": [
                 "/images/prop7/main.jpg",
-                "/images/prop7/img1.jpg",
-                "/images/prop7/img2.jpg",
-                "/images/prop7/img3.jpg",
-                "/images/prop7/img4.jpg",
-                "/images/prop7/img5.jpg"
+                "/images/prop7/1.jpg",
+                "/images/prop7/2.jpg",
+                "/images/prop7/3.jpg",
+                "/images/prop7/4.jpg"
             ],
             "floorPlan": "/images/prop7/fp.jpg",
             "url": "properties/prop7.html",
