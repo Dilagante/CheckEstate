@@ -3,17 +3,26 @@
         {
             "id": "prop1",
             "type": "House",
-            "bedrooms": 3,
-            "price": 750000,
+            "bedrooms":  3,
+            "price":  750000,
             "tenure": "Freehold",
-            "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory.  The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior.",
-            "location":  "Petts Wood Road, Petts Wood, Orpington BR5",
-            "picture": "images/prop1pic1small.jpg",
+            "description": "Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland.  The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory.  The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior.",
+            "location": "Petts Wood Road, Petts Wood, Orpington BR5",
+            "picture": "/images/prop1/main.jpg",
+            "images": [
+                "/images/prop1/main.jpg",
+                "/images/prop1/img1.jpg",
+                "/images/prop1/img2.jpg",
+                "/images/prop1/img3.jpg",
+                "/images/prop1/img4.jpg",
+                "/images/prop1/img5.jpg"
+            ],
+            "floorPlan": "/images/prop1/fp.jpg",
             "url":  "properties/prop1.html",
             "added": {
                 "month": "October",
                 "day": 12,
-                "year":  2022
+                "year": 2022
             }
         },
         {
@@ -21,31 +30,49 @@
             "type": "Flat",
             "bedrooms": 2,
             "price": 399995,
-            "tenure": "Freehold",
-            "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat.  The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.  This apartment being only five years old, is still under a 10 year building guarantee.",
+            "tenure":  "Freehold",
+            "description": "Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat.  The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath.  There is also a separate wet room.  There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms. This apartment being only five years old, is still under a 10 year building guarantee.",
             "location": "Crofton Road, Orpington BR6",
-            "picture": "images/prop2pic1small.jpg",
+            "picture": "/images/prop2/main.jpg",
+            "images":  [
+                "/images/prop2/main.jpg",
+                "/images/prop2/img1.jpg",
+                "/images/prop2/img2.jpg",
+                "/images/prop2/img3.jpg",
+                "/images/prop2/img4.jpg",
+                "/images/prop2/img5.jpg"
+            ],
+            "floorPlan": "/images/prop2/fp.jpg",
             "url": "properties/prop2.html",
             "added": {
                 "month": "September",
-                "day":  14,
+                "day": 14,
                 "year": 2022
             }
         },
         {
-            "id":  "prop3",
+            "id": "prop3",
             "type": "Flat",
             "bedrooms": 1,
             "price": 185000,
             "tenure": "Leasehold",
-            "description": "A charming one bedroom flat located in the heart of Camden, perfect for first-time buyers or investors. This cosy apartment features an open-plan living area with modern kitchen units, a spacious bedroom with built-in wardrobes, and a contemporary bathroom with shower.  The property benefits from large windows providing excellent natural light, secure entry system, and is within walking distance of Camden Town Underground station, local markets, and vibrant nightlife.  Ideal for professionals seeking city living at an affordable price.",
-            "location":  "Camden High Street, Camden NW1",
-            "picture": "images/prop3pic1small.jpg",
+            "description": "A charming one bedroom flat located in the heart of Camden, perfect for first-time buyers or investors. This cosy apartment features an open-plan living area with modern kitchen units, a spacious bedroom with built-in wardrobes, and a contemporary bathroom with shower. The property benefits from large windows providing excellent natural light, secure entry system, and is within walking distance of Camden Town Underground station, local markets, and vibrant nightlife. Ideal for professionals seeking city living at an affordable price.",
+            "location": "Camden High Street, Camden NW1",
+            "picture": "/images/prop3/main.jpg",
+            "images": [
+                "/images/prop3/main.jpg",
+                "/images/prop3/img1.jpg",
+                "/images/prop3/img2.jpg",
+                "/images/prop3/img3.jpg",
+                "/images/prop3/img4.jpg",
+                "/images/prop3/img5.jpg"
+            ],
+            "floorPlan": "/images/prop3/fp.jpg",
             "url": "properties/prop3.html",
             "added": {
-                "month": "March",
-                "day": 22,
-                "year": 2024
+                "month":  "March",
+                "day":  22,
+                "year":  2024
             }
         },
         {
@@ -54,11 +81,20 @@
             "bedrooms": 5,
             "price": 1250000,
             "tenure": "Freehold",
-            "description": "An impressive five bedroom detached Victorian residence set on a quiet tree-lined avenue in prestigious Dulwich Village. This stunning family home retains many original period features including ornate cornicing, ceiling roses, and original fireplaces, whilst offering modern amenities throughout. The ground floor comprises a grand entrance hallway, two elegant reception rooms, a bespoke fitted kitchen with granite worktops and Aga, utility room, and guest WC.  Upstairs offers five generous bedrooms, a family bathroom, and an en-suite to the master bedroom. The property also features a landscaped rear garden, detached double garage, and off-street parking for multiple vehicles.",
-            "location":  "Village Way, Dulwich SE21",
-            "picture": "images/prop4pic1small. jpg",
+            "description":  "An impressive five bedroom detached Victorian residence set on a quiet tree-lined avenue in prestigious Dulwich Village.  This stunning family home retains many original period features including ornate cornicing, ceiling roses, and original fireplaces, whilst offering modern amenities throughout. The ground floor comprises a grand entrance hallway, two elegant reception rooms, a bespoke fitted kitchen with granite worktops and Aga, utility room, and guest WC.  Upstairs offers five generous bedrooms, a family bathroom, and an en-suite to the master bedroom. The property also features a landscaped rear garden, detached double garage, and off-street parking for multiple vehicles.",
+            "location": "Village Way, Dulwich SE21",
+            "picture": "/images/prop4/main.jpg",
+            "images": [
+                "/images/prop4/main.jpg",
+                "/images/prop4/img1.jpg",
+                "/images/prop4/img2.jpg",
+                "/images/prop4/img3.jpg",
+                "/images/prop4/img4.jpg",
+                "/images/prop4/img5.jpg"
+            ],
+            "floorPlan": "/images/prop4/fp.jpg",
             "url": "properties/prop4.html",
-            "added":  {
+            "added": {
                 "month": "July",
                 "day": 5,
                 "year": 2024
@@ -70,14 +106,23 @@
             "bedrooms": 3,
             "price": 625000,
             "tenure": "Leasehold",
-            "description": "A stunning three bedroom penthouse apartment situated on the top floor of this modern riverside development in Canary Wharf.  This exceptional property offers panoramic views of the Thames and city skyline from its wraparound private terrace.  The interior features an expansive open-plan living and dining area, a sleek handleless kitchen with Siemens appliances, three double bedrooms with fitted wardrobes, two luxury bathrooms, and a separate utility room.  Residents benefit from 24-hour concierge, secure underground parking, gymnasium, and communal gardens.  Excellent transport links with Canary Wharf station just minutes away.",
-            "location":  "Westferry Road, Canary Wharf E14",
-            "picture": "images/prop5pic1small.jpg",
+            "description": "A stunning three bedroom penthouse apartment situated on the top floor of this modern riverside development in Canary Wharf. This exceptional property offers panoramic views of the Thames and city skyline from its wraparound private terrace.  The interior features an expansive open-plan living and dining area, a sleek handleless kitchen with Siemens appliances, three double bedrooms with fitted wardrobes, two luxury bathrooms, and a separate utility room.  Residents benefit from 24-hour concierge, secure underground parking, gymnasium, and communal gardens.  Excellent transport links with Canary Wharf station just minutes away.",
+            "location": "Westferry Road, Canary Wharf E14",
+            "picture": "/images/prop5/main.jpg",
+            "images": [
+                "/images/prop5/main.jpg",
+                "/images/prop5/img1.jpg",
+                "/images/prop5/img2.jpg",
+                "/images/prop5/img3.jpg",
+                "/images/prop5/img4.jpg",
+                "/images/prop5/img5.jpg"
+            ],
+            "floorPlan": "/images/prop5/fp.jpg",
             "url": "properties/prop5.html",
             "added": {
-                "month": "November",
+                "month":  "November",
                 "day":  30,
-                "year": 2024
+                "year":  2024
             }
         },
         {
@@ -86,9 +131,18 @@
             "bedrooms": 2,
             "price": 320000,
             "tenure": "Freehold",
-            "description": "A delightful two bedroom terraced cottage located in the charming suburb of Bromley.  This well-maintained property offers a cosy living room with feature fireplace, a refitted kitchen with integrated appliances and space for dining, two comfortable bedrooms, and a modern bathroom suite. Outside, there is a low-maintenance paved courtyard garden, perfect for al fresco dining.  Further benefits include double glazing, gas central heating, and a garden shed.  Conveniently located within walking distance of Bromley South station, high street shops, restaurants, and excellent local schools.",
+            "description": "A delightful two bedroom terraced cottage located in the charming suburb of Bromley. This well-maintained property offers a cosy living room with feature fireplace, a refitted kitchen with integrated appliances and space for dining, two comfortable bedrooms, and a modern bathroom suite. Outside, there is a low-maintenance paved courtyard garden, perfect for al fresco dining.  Further benefits include double glazing, gas central heating, and a garden shed.  Conveniently located within walking distance of Bromley South station, high street shops, restaurants, and excellent local schools.",
             "location": "Mason's Hill, Bromley BR2",
-            "picture": "images/prop6pic1small.jpg",
+            "picture": "/images/prop6/main.jpg",
+            "images": [
+                "/images/prop6/main. jpg",
+                "/images/prop6/img1.jpg",
+                "/images/prop6/img2.jpg",
+                "/images/prop6/img3.jpg",
+                "/images/prop6/img4.jpg",
+                "/images/prop6/img5.jpg"
+            ],
+            "floorPlan": "/images/prop6/fp. jpg",
             "url": "properties/prop6.html",
             "added": {
                 "month": "January",
@@ -103,13 +157,22 @@
             "price": 2750000,
             "tenure": "Freehold",
             "description": "An exquisite four bedroom Georgian townhouse nestled in the heart of Chelsea, one of London's most sought-after locations. This immaculately presented Grade II listed property spans four floors and seamlessly blends period elegance with contemporary luxury. Features include a stunning reception room with original shutters and marble fireplace, a chef's kitchen with bespoke cabinetry and premium appliances, a private study, four beautifully appointed bedrooms, three bathrooms, and a wine cellar. The south-facing walled garden provides a tranquil oasis in the city.  Located moments from King's Road boutiques, fine dining, and Sloane Square Underground.",
-            "location":  "Markham Street, Chelsea SW3",
-            "picture":  "images/prop7pic1small.jpg",
+            "location": "Markham Street, Chelsea SW3",
+            "picture": "/images/prop7/main.jpg",
+            "images": [
+                "/images/prop7/main.jpg",
+                "/images/prop7/img1.jpg",
+                "/images/prop7/img2.jpg",
+                "/images/prop7/img3.jpg",
+                "/images/prop7/img4.jpg",
+                "/images/prop7/img5.jpg"
+            ],
+            "floorPlan": "/images/prop7/fp.jpg",
             "url": "properties/prop7.html",
             "added": {
                 "month":  "August",
-                "day": 19,
-                "year": 2023
+                "day":  19,
+                "year":  2023
             }
         }
     ]
