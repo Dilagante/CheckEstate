@@ -39,7 +39,7 @@ function PropertyPage() {
   return (
     <div className="property-page">
       {/* Header/Navbar */}
-      <Header favouritesCount={0} />
+      <Header />
 
       {/* Back Button */}
       <Container className="property-page__back">

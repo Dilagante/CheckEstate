@@ -74,7 +74,7 @@ function SearchPage() {
   return (
     <div className="search-page">
       {/* Header/Navbar */}
-      <Header favouritesCount={0} />
+      <Header />
 
       {/* Hero Section */}
       <Hero />
