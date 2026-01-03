@@ -1,17 +1,17 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useFavourites } from '../context/FavouritesContext'
-import PropTypes from 'prop-types'
 import '../styles/FavouritesSidebar.css'
 
 function FavouritesSidebar() {
-  const { favourites, removeFavourite, clearFavourites, favouritesCount } = useFavourites()
-  const [isOpen, setIsOpen] = useState(false)
-
-  // Toggle sidebar open/close
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen)
-  }
+  const { 
+    favourites, 
+    removeFavourite, 
+    clearFavourites, 
+    favouritesCount,
+    isSidebarOpen,
+    toggleSidebar,
+    closeSidebar
+  } = useFavourites()
 
   // Format price
   const formatPrice = (price) => {
@@ -20,7 +20,8 @@ function FavouritesSidebar() {
 
   // Handle remove favourite
   const handleRemove = (propertyId, e) => {
-    e.preventDefault() // Prevent link navigation
+    e.preventDefault()
+    e.stopPropagation()
     removeFavourite(propertyId)
   }
 
@@ -35,7 +36,7 @@ function FavouritesSidebar() {
     <>
       {/* Toggle Button */}
       <button 
-        className={`favourites-toggle ${isOpen ? 'is-open' : ''}`}
+        className={`favourites-toggle ${isSidebarOpen ? 'is-open' : ''}`}
         onClick={toggleSidebar}
         aria-label="Toggle favourites sidebar"
         title="View favourites"
@@ -47,16 +48,16 @@ function FavouritesSidebar() {
       </button>
 
       {/* Sidebar Overlay */}
-      {isOpen && (
+      {isSidebarOpen && (
         <div 
           className="favourites-overlay" 
-          onClick={toggleSidebar}
+          onClick={closeSidebar}
           aria-hidden="true"
         />
       )}
 
       {/* Sidebar Panel */}
-      <aside className={`favourites-sidebar ${isOpen ? 'is-open' : ''}`}>
+      <aside className={`favourites-sidebar ${isSidebarOpen ? 'is-open' : ''}`}>
         {/* Header */}
         <div className="favourites-sidebar__header">
           <h2 className="favourites-sidebar__title">
@@ -66,7 +67,7 @@ function FavouritesSidebar() {
           </h2>
           <button 
             className="close-button"
-            onClick={toggleSidebar}
+            onClick={closeSidebar}
             aria-label="Close favourites"
           >
             ✕
@@ -91,7 +92,7 @@ function FavouritesSidebar() {
                     key={property.id}
                     to={`/property/${property.id}`}
                     className="favourite-item"
-                    onClick={toggleSidebar}
+                    onClick={closeSidebar}
                   >
                     {/* Property Image */}
                     <div className="favourite-item__image">

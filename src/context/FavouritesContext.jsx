@@ -3,15 +3,13 @@ import PropTypes from 'prop-types'
 
 const FavouritesContext = createContext()
 
-// Custom hook to use the favourites context
 export const useFavourites = () => {
   const context = useContext(FavouritesContext)
-
   return context
 }
 
 export const FavouritesProvider = ({ children }) => {
-  // Initialize from localStorage or empty array
+  // Existing favourites state
   const [favourites, setFavourites] = useState(() => {
     try {
       const savedFavourites = localStorage.getItem('checkEstateFavourites')
@@ -21,6 +19,9 @@ export const FavouritesProvider = ({ children }) => {
       return []
     }
   })
+
+  // NEW:  Sidebar open/close state
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   // Save to localStorage whenever favourites change
   useEffect(() => {
@@ -34,11 +35,10 @@ export const FavouritesProvider = ({ children }) => {
   // Add property to favourites
   const addFavourite = (property) => {
     setFavourites((prev) => {
-      // Check if already in favourites
-      if (prev.some((fav) => fav.id === property. id)) {
+      if (prev.some((fav) => fav.id === property.id)) {
         return prev
       }
-      return [...prev, property]
+      return [... prev, property]
     })
   }
 
@@ -57,13 +57,28 @@ export const FavouritesProvider = ({ children }) => {
     return favourites.some((fav) => fav.id === propertyId)
   }
 
-  // Toggle favourite (add if not in list, remove if in list)
+  // Toggle favourite
   const toggleFavourite = (property) => {
     if (isFavourite(property.id)) {
       removeFavourite(property.id)
     } else {
       addFavourite(property)
     }
+  }
+
+  //Open sidebar
+  const openSidebar = () => {
+    setIsSidebarOpen(true)
+  }
+
+  //Close sidebar
+  const closeSidebar = () => {
+    setIsSidebarOpen(false)
+  }
+
+  //Toggle sidebar
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev)
   }
 
   const value = {
@@ -73,7 +88,11 @@ export const FavouritesProvider = ({ children }) => {
     clearFavourites,
     isFavourite,
     toggleFavourite,
-    favouritesCount: favourites.length
+    favouritesCount: favourites.length,
+    isSidebarOpen,
+    openSidebar,
+    closeSidebar,
+    toggleSidebar
   }
 
   return (

@@ -2,7 +2,13 @@ import { useFavourites } from '../context/FavouritesContext'
 import '../styles/Header.css'
 
 function Header() {
-  const { favouritesCount } = useFavourites()
+  const { favouritesCount, openSidebar } = useFavourites()
+
+  // Handle favourites link click
+  const handleFavouritesClick = (e) => {
+    e.preventDefault()
+    openSidebar()
+  }
 
   return (
     <header>
@@ -15,7 +21,7 @@ function Header() {
             <a href="#search">Search</a>
           </li>
           <li className="navbarlink">
-            <a href="#favourites">
+            <a href="#favourites" onClick={handleFavouritesClick} className="favourites-link">
               Favourites
               {favouritesCount > 0 && (
                 <span className="favourites-count"> {favouritesCount}</span>
