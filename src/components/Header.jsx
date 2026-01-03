@@ -1,21 +1,29 @@
+import { useFavourites } from '../context/FavouritesContext'
 import '../styles/Header.css'
 
-function Header({ favouritesCount = 0 }) {
+function Header() {
+  const { favouritesCount } = useFavourites()
+
   return (
-<header>
+    <header>
       <h1 className="title">
-        <a href="home.html">CheckEstate</a>
+        <a href="/">CheckEstate</a>
       </h1>
       <nav>
         <ul className="navbarul">
           <li className="navbarlink">
-            <a href="#" target="_blank">Search</a>
+            <a href="/">Search</a>
           </li>
           <li className="navbarlink">
-            <a href="#" target="_blank">Favourites</a>
+            <a href="#favourites">
+              Favourites
+              {favouritesCount > 0 && (
+                <span className="favourites-count"> {favouritesCount}</span>
+              )}
+            </a>
           </li>
           <li className="navbarlink">
-            <a href="#" target="_blank">About</a>
+            <a href="#about">About</a>
           </li>
         </ul>
       </nav>
