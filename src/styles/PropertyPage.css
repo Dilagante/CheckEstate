@@ -193,6 +193,23 @@
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
 }
 
+.btn-favourite-large:active {
+  transform: translateY(0);
+}
+
+/* Favourite Button - Favourited State */
+.btn-favourite-large.is-favourited {
+  background: #ef4444;
+  color: white;
+  border-color: #dc2626;
+}
+
+.btn-favourite-large.is-favourited:hover {
+  background: #dc2626;
+  border-color: #b91c1c;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
 .btn-contact {
   background:  #2563eb;
   color: white;

@@ -1,18 +1,24 @@
+import { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import Header from "../components/Header";
 import PropertyGallery from "../components/PropertyGallery";
-import FavouritesSidebar from '../components/FavouritesSidebar'
+import FavouritesSidebar from "../components/FavouritesSidebar";
+import { useFavourites } from "../context/FavouritesContext";
 import propertiesData from "../data/properties.json";
-import PropertyTabs from '../components/PropertyTabs'
+import PropertyTabs from "../components/PropertyTabs";
 import "../styles/PropertyPage.css";
 
 function PropertyPage() {
   const { id } = useParams(); // Get property ID from URL
   const navigate = useNavigate();
+  const { isFavourite, toggleFavourite } = useFavourites();
 
   // Find the property with this ID
   const property = propertiesData.properties.find((p) => p.id === id);
+
+  // Check if this property is favourited
+  const favourited = property ? isFavourite(property.id) : false;
 
   // If property not found
   if (!property) {
@@ -35,6 +41,11 @@ function PropertyPage() {
   // Format price
   const formatPrice = (price) => {
     return `£${price.toLocaleString()}`;
+  };
+
+  // Handle favourite button click
+  const handleFavouriteClick = () => {
+    toggleFavourite(property);
   };
 
   return (
@@ -123,8 +134,13 @@ function PropertyPage() {
                 </ul>
 
                 <div className="sidebar-actions">
-                  <button className="btn-favourite-large">
-                    ♡ Add to Favourites
+                  {/* Updated Favourite Button with Logic */}
+                  <button 
+                    className={`btn-favourite-large ${favourited ? 'is-favourited' : ''}`}
+                    onClick={handleFavouriteClick}
+                    aria-label={favourited ? 'Remove from favourites' : 'Add to favourites'}
+                    title={favourited ? 'Remove from favourites' : 'Add to favourites'}>
+                    {favourited ? '♥ Remove from Favourites' : '♡ Add to Favourites'}
                   </button>
                   <button className="btn-contact">📧 Contact Agent</button>
                 </div>
