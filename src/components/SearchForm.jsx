@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Row, Col, Button } from 'react-bootstrap'
 import Select from 'react-select'
 import DatePicker from 'react-datepicker'
@@ -49,7 +49,7 @@ function SearchForm({ onSearch }) {
 
   // Bedroom options
   const bedroomOptions = [
-    { value: 0, label: 'Any' },
+    { value:  0, label: 'Any' },
     { value: 1, label: '1' },
     { value: 2, label: '2' },
     { value: 3, label: '3' },
@@ -57,12 +57,12 @@ function SearchForm({ onSearch }) {
     { value:  5, label: '5+' }
   ]
 
-  // Postcode options
+  // Postcode options (common London areas)
   const postcodeOptions = [
     { value: 'BR1', label: 'BR1 - Bromley' },
     { value:  'BR2', label: 'BR2 - Bromley' },
-    { value:  'BR5', label: 'BR5 - Orpington' },
-    { value: 'BR6', label:  'BR6 - Orpington' },
+    { value: 'BR5', label: 'BR5 - Orpington' },
+    { value: 'BR6', label: 'BR6 - Orpington' },
     { value: 'SE21', label: 'SE21 - Dulwich' },
     { value:  'E14', label: 'E14 - Canary Wharf' },
     { value: 'SW3', label: 'SW3 - Chelsea' },
@@ -87,7 +87,7 @@ function SearchForm({ onSearch }) {
         : state.isFocused 
         ? 'rgba(37, 99, 235, 0.1)' 
         : 'white',
-      color: state.isSelected ? 'white' : '#374151',
+      color: state.isSelected ?  'white' : '#374151',
       cursor: 'pointer'
     }),
     placeholder: (base) => ({
@@ -96,10 +96,8 @@ function SearchForm({ onSearch }) {
     })
   }
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    
+  // Auto-search whenever any filter changes
+  useEffect(() => {
     const searchCriteria = {
       propertyType:  propertyType?. value || 'any',
       minPrice: minPrice?. value || 0,
@@ -112,7 +110,7 @@ function SearchForm({ onSearch }) {
     }
 
     onSearch(searchCriteria)
-  }
+  }, [propertyType, minPrice, maxPrice, minBedrooms, maxBedrooms, dateFrom, dateTo, postcode, onSearch])
 
   // Reset form
   const handleReset = () => {
@@ -124,28 +122,28 @@ function SearchForm({ onSearch }) {
     setDateFrom(null)
     setDateTo(null)
     setPostcode(null)
-    
-    // Reset to show all properties
-    onSearch({
-      propertyType:  'any',
-      minPrice: 0,
-      maxPrice: Infinity,
-      minBedrooms: 0,
-      maxBedrooms: Infinity,
-      dateFrom: null,
-      dateTo: null,
-      postcode: null
-    })
   }
 
+  // Count active filters
+  const activeFiltersCount = [
+    propertyType,
+    minPrice,
+    maxPrice,
+    minBedrooms,
+    maxBedrooms,
+    dateFrom,
+    dateTo,
+    postcode
+  ]. filter(Boolean).length
+
   return (
-    <form onSubmit={handleSubmit} className="search-form">
+    <div className="search-form">
       <div className="search-form__header">
         <h2 className="search-form__title">
           🔍 Search Properties
         </h2>
         <p className="search-form__subtitle">
-          Find your perfect home with our advanced search filters
+          Filters apply automatically as you select options
         </p>
       </div>
 
@@ -318,27 +316,21 @@ function SearchForm({ onSearch }) {
         </Row>
       </div>
 
-      {/* Action Buttons */}
-      <div className="search-form__actions">
-        <Button 
-          type="submit" 
-          variant="primary" 
-          size="lg"
-          className="search-btn"
-        >
-          🔍 Search Properties
-        </Button>
-        <Button 
-          type="button" 
-          variant="outline-secondary" 
-          size="lg"
-          onClick={handleReset}
-          className="reset-btn"
-        >
-          ↻ Reset Filters
-        </Button>
-      </div>
-    </form>
+      {/* Reset Button (only show if filters are active) */}
+      {activeFiltersCount > 0 && (
+        <div className="search-form__actions">
+          <Button 
+            type="button" 
+            variant="outline-secondary" 
+            size="lg"
+            onClick={handleReset}
+            className="reset-btn"
+          >
+            ↻ Clear All Filters ({activeFiltersCount})
+          </Button>
+        </div>
+      )}
+    </div>
   )
 }
 

@@ -85,15 +85,6 @@ function SearchPage() {
           {/* Search Form */}
           <SearchForm onSearch={handleSearch} />
 
-          {/* Search Results Info */}
-          {searchCriteria && (
-            <div className="search-results-info">
-              <p>
-                Found <strong>{filteredProperties.length}</strong> {filteredProperties.length === 1 ? 'property' : 'properties'} matching your criteria
-              </p>
-            </div>
-          )}
-
           {/* Property Results */}
           <div className="search-page__results">
             <PropertyList properties={filteredProperties} />
