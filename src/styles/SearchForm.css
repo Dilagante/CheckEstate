@@ -1,0 +1,232 @@
+/* ================================
+   SEARCH FORM STYLES
+   ================================ */
+
+.search-form {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom:  2rem;
+}
+
+/* Header */
+.search-form__header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.search-form__title {
+  font-size: 1.75rem;
+  font-weight:  700;
+  color: #111827;
+  margin:  0 0 0.5rem 0;
+}
+
+.search-form__subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  margin:  0;
+}
+
+/* Content */
+.search-form__content {
+  margin-bottom: 1.5rem;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom:  0.5rem;
+}
+
+/* React Select Container */
+.react-select-container {
+  font-size: 0.9375rem;
+}
+
+/* DatePicker Input */
+.datepicker-input {
+  width: 100%;
+  height: 44px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.datepicker-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.datepicker-input::placeholder {
+  color: #9ca3af;
+}
+
+/* React DatePicker Customization */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.react-datepicker__header {
+  background-color: #2563eb;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding-top: 0.875rem;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: white;
+  font-weight: 500;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #2563eb;
+  border-radius: 4px;
+}
+
+.react-datepicker__day:hover {
+  background-color:  rgba(37, 99, 235, 0.1);
+  border-radius: 4px;
+}
+
+.react-datepicker__day--in-range {
+  background-color: rgba(37, 99, 235, 0.2);
+}
+
+/* Action Buttons */
+.search-form__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding-top: 1.5rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.search-btn,
+.reset-btn {
+  min-width: 180px;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.search-btn {
+  background: #2563eb;
+  border: none;
+}
+
+.search-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.reset-btn {
+  border: 2px solid #d1d5db;
+  color: #374151;
+}
+
+.reset-btn:hover {
+  background:  #f3f4f6;
+  border-color: #9ca3af;
+  color: #111827;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE STYLES */
+
+/* iPad Landscape and below (1024px) */
+@media (max-width: 1024px) {
+  .search-form {
+    padding: 1.5rem;
+  }
+
+  .search-form__title {
+    font-size: 1.5rem;
+  }
+
+  .search-btn,
+  .reset-btn {
+    min-width: 160px;
+  }
+}
+
+/* Tablet (768px) */
+@media (max-width:  768px) {
+  .search-form {
+    padding:  1.25rem;
+  }
+
+  .search-form__header {
+    margin-bottom: 1.5rem;
+    padding-bottom:  1rem;
+  }
+
+  .search-form__title {
+    font-size: 1.25rem;
+  }
+
+  .search-form__subtitle {
+    font-size: 0.875rem;
+  }
+
+  .search-form__actions {
+    flex-direction: column;
+  }
+
+  .search-btn,
+  .reset-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  .search-form {
+    padding: 1rem;
+  }
+
+  .search-form__title {
+    font-size: 1.125rem;
+  }
+
+  .form-label {
+    font-size: 0.8125rem;
+  }
+
+  .datepicker-input {
+    height: 40px;
+    font-size: 0.875rem;
+  }
+
+  .search-btn,
+  .reset-btn {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+}
