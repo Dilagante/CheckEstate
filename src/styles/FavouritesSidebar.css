@@ -1,0 +1,366 @@
+/* FAVOURITES SIDEBAR STYLES*/
+
+/* Toggle Button (Fixed Position) */
+.favourites-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size:  1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  transition: all 0.3s ease;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favourites-toggle:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.5);
+}
+
+.favourites-toggle.is-open {
+  background: #dc2626;
+}
+
+.favourites-icon {
+  animation: heartBeat 1. 5s ease infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform:  scale(0.9);
+  }
+  20%, 40% {
+    transform: scale(1.1);
+  }
+}
+
+/* Count Badge */
+.favourites-count-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: white;
+  color: #ef4444;
+  width: 24px;
+  height: 24px;
+  border-radius:  50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight:  700;
+  border: 2px solid #ef4444;
+}
+
+/* Overlay */
+.favourites-overlay {
+  position: fixed;
+  top: 0;
+  left:  0;
+  right: 0;
+  bottom:  0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Sidebar Panel */
+.favourites-sidebar {
+  position: fixed;
+  top:  0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: white;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+}
+
+.favourites-sidebar.is-open {
+  right: 0;
+}
+
+/* Header */
+.favourites-sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.favourites-sidebar__title {
+  font-size: 1.25rem;
+  font-weight:  700;
+  color: #111827;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.title-icon {
+  color: #ef4444;
+  font-size: 1.5rem;
+}
+
+.title-count {
+  color: #6b7280;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* Content */
+.favourites-sidebar__content {
+  flex:  1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Empty State */
+.favourites-empty {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.favourites-empty h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin:  0 0 0.5rem;
+}
+
+.favourites-empty p {
+  color: #6b7280;
+  margin:  0;
+  line-height: 1.6;
+}
+
+/* Favourites List */
+.favourites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Favourite Item */
+.favourite-item {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.favourite-item:hover {
+  background: white;
+  border-color: #2563eb;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+/* Item Image */
+.favourite-item__image {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.favourite-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.favourite-item__type {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  background: rgba(37, 99, 235, 0.9);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.625rem;
+  font-weight:  600;
+  text-transform: uppercase;
+}
+
+/* Item Info */
+.favourite-item__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.favourite-item__location {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  margin:  0 0 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:  hidden;
+}
+
+.favourite-item__price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #10b981;
+  margin: 0 0 0.25rem;
+}
+
+.favourite-item__details {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin:  0;
+}
+
+/* Remove Button */
+.favourite-item__remove {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition:  all 0.2s ease;
+}
+
+.favourite-item:hover .favourite-item__remove {
+  opacity: 1;
+}
+
+.favourite-item__remove:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* Footer */
+.favourites-sidebar__footer {
+  padding: 1rem;
+  border-top: 2px solid #e5e7eb;
+}
+
+.clear-all-button {
+  width: 100%;
+  padding:  0.75rem;
+  background: #fef2f2;
+  color: #ef4444;
+  border: 2px solid #fee2e2;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-all-button:hover {
+  background: #fee2e2;
+  border-color: #fecaca;
+  transform: translateY(-2px);
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 768px) {
+  .favourites-sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .favourites-toggle {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .favourites-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .favourites-count-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 0.625rem;
+  }
+
+  .favourite-item__image {
+    width: 70px;
+    height: 70px;
+  }
+}

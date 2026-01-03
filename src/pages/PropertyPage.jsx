@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Container, Button } from "react-bootstrap";
 import Header from "../components/Header";
 import PropertyGallery from "../components/PropertyGallery";
+import FavouritesSidebar from '../components/FavouritesSidebar'
 import propertiesData from "../data/properties.json";
 import PropertyTabs from '../components/PropertyTabs'
 import "../styles/PropertyPage.css";
@@ -132,6 +133,7 @@ function PropertyPage() {
           </div>
         </Container>
       </section>
+      <FavouritesSidebar />
     </div>
   );
 }
