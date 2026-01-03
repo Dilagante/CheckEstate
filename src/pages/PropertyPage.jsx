@@ -1,6 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { Container, Button } from 'react-bootstrap'
 import Header from '../components/Header'
+import PropertyGallery from '../components/PropertyGallery'
 import propertiesData from '../data/properties.json'
 import '../styles/PropertyPage.css'
 
@@ -75,17 +76,11 @@ function PropertyPage() {
           <div className="property-layout">
             {/* Left Column - Image & Details */}
             <div className="property-main">
-              {/* Property Image (Gallery will replace this) */}
-              <div className="property-image-container">
-                <img 
-                  src={property.picture} 
-                  alt={property.location}
-                  className="property-image"
-                />
-                <div className="image-placeholder">
-                  <p>📷 Gallery with thumbnails coming soon... </p>
-                </div>
-              </div>
+              {/* Property Gallery */}
+              <PropertyGallery 
+                images={property.images || [property.picture]} 
+                location={property.location}
+              />
 
               {/* Tabs Placeholder */}
               <div className="property-tabs-placeholder">

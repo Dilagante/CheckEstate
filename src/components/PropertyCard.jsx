@@ -41,7 +41,7 @@ function PropertyCard({ property }) {
         {/* Property Info */}
         <div className="property-card__info">
           <span className="property-card__bedrooms">
-            🛏️ {property.bedrooms} bed{property.bedrooms !== 1 ? 's' :  ''}
+            🛏️ {property.bedrooms} bedroom{property.bedrooms !== 1 ? 's' :  ''}
           </span>
           <span className="property-card__separator">•</span>
           <span className="property-card__tenure">
