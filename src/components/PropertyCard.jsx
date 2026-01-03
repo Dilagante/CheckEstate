@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom'
+import { useFavourites } from '../context/FavouritesContext'
 import PropTypes from 'prop-types'
 import '../styles/PropertyCard.css'
 
+
+
 function PropertyCard({ property }) {
+
+  //Save favourites context
+  const { isFavourite, toggleFavourite } = useFavourites()
+  const favourited = isFavourite(property.id)
+
   // Format price with commas and £ symbol
   const formatPrice = (price) => {
     return `£${price.toLocaleString()}`
@@ -11,6 +19,12 @@ function PropertyCard({ property }) {
   // Format date added
   const formatDate = (dateObj) => {
     return `${dateObj.month} ${dateObj.year}`
+  }
+
+  // Handle favourite button click
+  const handleFavouriteClick = (e) => {
+    e.preventDefault() // Prevent link navigation
+    toggleFavourite(property)
   }
 
   return (
@@ -51,12 +65,12 @@ function PropertyCard({ property }) {
 
         {/* Price */}
         <p className="property-card__price">
-          {formatPrice(property. price)}
+          {formatPrice(property.price)}
         </p>
 
         {/* Short Description */}
         <p className="property-card__description">
-          {property.description. substring(0, 120)}...
+          {property.description.substring(0, 120)}...
         </p>
 
         {/* Date Added */}
@@ -73,10 +87,12 @@ function PropertyCard({ property }) {
             View Details →
           </Link>
           <button 
-            className="property-card__btn property-card__btn--favourite"
-            aria-label="Add to favourites"
+            className={`property-card__btn property-card__btn--favourite ${favourited ? 'is-favourited' : ''}`}
+            onClick={handleFavouriteClick}
+            aria-label={favourited ? 'Remove from favourites' : 'Add to favourites'}
+            title={favourited ? 'Remove from favourites' : 'Add to favourites'}
           >
-            ♡
+            {favourited ? '♥' : '♡'}
           </button>
         </div>
       </div>
@@ -87,17 +103,17 @@ function PropertyCard({ property }) {
 // PropTypes for validation
 PropertyCard.propTypes = {
   property: PropTypes.shape({
-    id: PropTypes. string.isRequired,
+    id: PropTypes.  string.isRequired,
     type: PropTypes.string.isRequired,
     bedrooms: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     tenure: PropTypes.string.isRequired,
-    description: PropTypes. string.isRequired,
+    description: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    picture: PropTypes. string.isRequired,
+    picture: PropTypes.string.isRequired,
     url: PropTypes.string,
     added: PropTypes.shape({
-      month: PropTypes. string.isRequired,
+      month: PropTypes.string.isRequired,
       day: PropTypes.number.isRequired,
       year: PropTypes.number.isRequired,
     }).isRequired,
