@@ -2,10 +2,10 @@ header {
   background-color: rgb(44, 20, 69);
   height: 80px;
   overflow: hidden;
-  position: sticky; /* Keep Header in the same position */
+  position: sticky;
   top: 0;
   width: 100%;
-  z-index: 50; /* Keep Header above other elements */
+  z-index: 50;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,8 +31,9 @@ nav {
 header a {
   text-decoration: none;
   color: white;
-  display: block;
+  display: flex;
   transition: color 0.2s;
+  align-items: center;
 }
 
 /* Top-Left title color and size */
@@ -58,9 +59,9 @@ header a {
   display: inline-block;
   background: #ef4444;
   color: white;
-  padding:  0.225rem 0.5rem;
-  border-radius:  25px;
-  font-size:  0.75rem;
-  font-weight:  700;
+  padding: 0.225rem 0.5rem;
+  border-radius: 25px;
+  font-size: 0.75rem;
+  font-weight: 700;
   margin-left: 0.375rem;
 }

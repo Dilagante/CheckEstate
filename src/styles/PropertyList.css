@@ -197,7 +197,7 @@
   }
 
   .sort-label {
-    display: none; /* Hide "Sort by:" label on mobile to save space */
+    display: none;
   }
 
   .property-list__grid {

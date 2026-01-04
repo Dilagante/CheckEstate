@@ -1,6 +1,4 @@
-/* FAVOURITES SIDEBAR STYLES*/
-
-/* Toggle Button (Fixed Position) */
+/* Toggle Button */
 .favourites-toggle {
   position: fixed;
   bottom: 2rem;
@@ -11,7 +9,7 @@
   color: white;
   border: none;
   border-radius: 50%;
-  font-size:  1.5rem;
+  font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
   transition: all 0.3s ease;
@@ -32,17 +30,20 @@
 }
 
 .favourites-icon {
-  animation: heartBeat 1. 5s ease infinite;
+  animation: heartBeat 1 5s ease infinite;
 }
 
 @keyframes heartBeat {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
-  10%, 30% {
-    transform:  scale(0.9);
+  10%,
+  30% {
+    transform: scale(0.9);
   }
-  20%, 40% {
+  20%,
+  40% {
     transform: scale(1.1);
   }
 }
@@ -56,12 +57,12 @@
   color: #ef4444;
   width: 24px;
   height: 24px;
-  border-radius:  50%;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
-  font-weight:  700;
+  font-weight: 700;
   border: 2px solid #ef4444;
 }
 
@@ -69,9 +70,9 @@
 .favourites-overlay {
   position: fixed;
   top: 0;
-  left:  0;
+  left: 0;
   right: 0;
-  bottom:  0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
   animation: fadeIn 0.3s ease;
@@ -89,7 +90,7 @@
 /* Sidebar Panel */
 .favourites-sidebar {
   position: fixed;
-  top:  0;
+  top: 0;
   right: -400px;
   width: 400px;
   height: 100vh;
@@ -117,7 +118,7 @@
 
 .favourites-sidebar__title {
   font-size: 1.25rem;
-  font-weight:  700;
+  font-weight: 700;
   color: #111827;
   margin: 0;
   display: flex;
@@ -158,7 +159,7 @@
 
 /* Content */
 .favourites-sidebar__content {
-  flex:  1;
+  flex: 1;
   overflow-y: auto;
   padding: 1rem;
 }
@@ -179,12 +180,12 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: #374151;
-  margin:  0 0 0.5rem;
+  margin: 0 0 0.5rem;
 }
 
 .favourites-empty p {
   color: #6b7280;
-  margin:  0;
+  margin: 0;
   line-height: 1.6;
 }
 
@@ -240,7 +241,7 @@
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.625rem;
-  font-weight:  600;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -254,12 +255,12 @@
   font-size: 0.875rem;
   font-weight: 600;
   color: #111827;
-  margin:  0 0 0.25rem;
+  margin: 0 0 0.25rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow:  hidden;
+  overflow: hidden;
 }
 
 .favourite-item__price {
@@ -272,7 +273,7 @@
 .favourite-item__details {
   font-size: 0.75rem;
   color: #6b7280;
-  margin:  0;
+  margin: 0;
 }
 
 /* Remove Button */
@@ -292,7 +293,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition:  all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .favourite-item:hover .favourite-item__remove {
@@ -312,7 +313,7 @@
 
 .clear-all-button {
   width: 100%;
-  padding:  0.75rem;
+  padding: 0.75rem;
   background: #fef2f2;
   color: #ef4444;
   border: 2px solid #fee2e2;
@@ -327,8 +328,6 @@
   border-color: #fecaca;
   transform: translateY(-2px);
 }
-
-/* Add to existing file */
 
 /* Drag Hint Tooltip */
 .drag-hint {
@@ -354,7 +353,7 @@
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: white;
   padding: 12px 20px;
-  border-radius:  12px;
+  border-radius: 12px;
   font-weight: 600;
   font-size: 14px;
   white-space: nowrap;
@@ -364,7 +363,7 @@
 
 /* Pulsing glow effect */
 .drag-hint-text::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -2px;
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
@@ -379,19 +378,20 @@
 @keyframes bounceIn {
   0% {
     opacity: 0;
-    transform:  translateY(20px) scale(0.8);
+    transform: translateY(20px) scale(0.8);
   }
   50% {
     transform: translateY(-5px) scale(1.05);
   }
   100% {
     opacity: 1;
-    transform:  translateY(0) scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -400,7 +400,8 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -409,8 +410,9 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity:  0.5;
+  0%,
+  100% {
+    opacity: 0.5;
   }
   50% {
     opacity: 0.8;
@@ -433,7 +435,8 @@
 }
 
 @keyframes wiggle {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1.3) rotate(0deg);
   }
   25% {

@@ -42,16 +42,16 @@
   color: white;
   padding: 0.375rem 0.75rem;
   border-radius: 20px;
-  font-size:  0.75rem;
-  font-weight:  600;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
   letter-spacing: 0.5px;
 }
 
 .property-title {
-  font-size:  2rem;
-  font-weight:  700;
+  font-size: 2rem;
+  font-weight: 700;
   color: #111827;
   margin: 0 0 0.5rem 0;
   line-height: 1.2;
@@ -71,7 +71,7 @@
 .price-label {
   font-size: 0.875rem;
   color: #6b7280;
-  margin:  0 0 0.25rem 0;
+  margin: 0 0 0.25rem 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -79,7 +79,7 @@
 .price-value {
   font-size: 2.5rem;
   font-weight: 700;
-  color:  #10b981;
+  color: #10b981;
   margin: 0;
 }
 
@@ -90,7 +90,7 @@
 
 .property-layout {
   display: grid;
-  grid-template-columns:  1fr 350px;
+  grid-template-columns: 1fr 350px;
   gap: 2rem;
 }
 
@@ -113,8 +113,8 @@
 }
 
 .sidebar-card {
-  background:  white;
-  border-radius:  12px;
+  background: white;
+  border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -123,15 +123,15 @@
 
 .sidebar-card h3 {
   font-size: 1.25rem;
-  font-weight:  600;
-  margin:  0 0 1.5rem 0;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
   color: #111827;
 }
 
 .property-details-list {
   list-style: none;
   padding: 0;
-  margin:  0 0 1.5rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .property-details-list li {
@@ -142,7 +142,7 @@
 }
 
 .property-details-list li:last-child {
-  border-bottom:  none;
+  border-bottom: none;
 }
 
 .detail-label {
@@ -153,7 +153,7 @@
 
 .detail-value {
   color: #111827;
-  font-weight:  600;
+  font-weight: 600;
   text-align: right;
 }
 
@@ -168,7 +168,7 @@
 .btn-contact,
 .btn-share {
   width: 100%;
-  padding:  0.875rem;
+  padding: 0.875rem;
   border: none;
   border-radius: 8px;
   font-weight: 500;
@@ -211,7 +211,7 @@
 }
 
 .btn-contact {
-  background:  #2563eb;
+  background: #2563eb;
   color: white;
 }
 
@@ -296,7 +296,7 @@
   }
 
   .property-header__price {
-    text-align:  left;
+    text-align: left;
   }
 
   .property-title {
