@@ -1,24 +1,14 @@
-<!DOCTYPE html>
+<! DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>CheckEstate</title>
-  <script>
-    // Only redirect if there's actually a path (not root)
-    const path = window.location.pathname. replace('/CheckEstate/', '').replace('/CheckEstate', '');
-    
-    if (path && path !== '/') {
-      // Redirect non-root paths to index.html with path as query
-      window.location.replace(
-        window.location.origin + '/CheckEstate/? redirect=' + encodeURIComponent(path)
-      );
-    } else {
-      // For root, just go to index
-      window.location.replace(window.location.origin + '/CheckEstate/');
-    }
-  </script>
+  <title>CheckEstate - Page Not Found</title>
 </head>
-<body>
-  <p>Redirecting... </p>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
+  <h1>🏠 Page Not Found</h1>
+  <p>The property you're looking for doesn't exist. </p>
+  <a href="/CheckEstate/" style="color: #2563eb; text-decoration: none; font-size: 18px;">
+    ← Return to Homepage
+  </a>
 </body>
 </html>
