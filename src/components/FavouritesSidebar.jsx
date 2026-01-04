@@ -1,44 +1,91 @@
-import { Link } from 'react-router-dom'
-import { useFavourites } from '../context/FavouritesContext'
-import { getImageUrl } from '../utils/imageUrl'
-import '../styles/FavouritesSidebar.css'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useFavourites } from "../context/FavouritesContext";
+import { getImageUrl } from "../utils/imageUrl";
+import "../styles/FavouritesSidebar.css";
 
 function FavouritesSidebar() {
-  const { 
-    favourites, 
-    removeFavourite, 
-    clearFavourites, 
+  const {
+    favourites,
+    removeFavourite,
+    clearFavourites,
     favouritesCount,
     isSidebarOpen,
     toggleSidebar,
-    closeSidebar
-  } = useFavourites()
+    closeSidebar,
+    addFavourite,
+  } = useFavourites();
+
+  const [isDragOver, setIsDragOver] = useState(false);
 
   // Format price
   const formatPrice = (price) => {
-    return `£${price.toLocaleString()}`
-  }
+    return `£${price.toLocaleString()}`;
+  };
 
   // Handle remove favourite
   const handleRemove = (propertyId, e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    removeFavourite(propertyId)
-  }
+    e.preventDefault();
+    e.stopPropagation();
+    removeFavourite(propertyId);
+  };
 
   // Handle clear all
   const handleClearAll = () => {
-    if (window.confirm(`Are you sure you want to remove all ${favouritesCount} favourite properties?`)) {
-      clearFavourites()
+    if (
+      window.confirm(
+        `Are you sure you want to remove all ${favouritesCount} favourite properties?`
+      )
+    ) {
+      clearFavourites();
     }
-  }
+  };
+
+  // Drop handlers for the floating button
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "copy";
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragOver(false);
+
+    try {
+      // Get property data from drag event
+      const propertyData = JSON.parse(
+        e.dataTransfer.getData("application/json")
+      );
+
+      if (propertyData && propertyData.id) {
+        addFavourite(propertyData);
+
+        // Show success feedback
+        e.currentTarget.classList.add("drop-success");
+        setTimeout(() => {
+          e.currentTarget.classList.remove("drop-success");
+        }, 600);
+      }
+    } catch (error) {
+      console.error("Error adding favourite via drag and drop:", error);
+    }
+  };
 
   return (
     <>
       {/* Toggle Button */}
-      <button 
-        className={`favourites-toggle ${isSidebarOpen ? 'is-open' : ''}`}
+      <button
+        className={`favourites-toggle ${isSidebarOpen ? "is-open" : ""}`}
         onClick={toggleSidebar}
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
         aria-label="Toggle favourites sidebar"
         title="View favourites"
       >
@@ -50,15 +97,15 @@ function FavouritesSidebar() {
 
       {/* Sidebar Overlay */}
       {isSidebarOpen && (
-        <div 
-          className="favourites-overlay" 
+        <div
+          className="favourites-overlay"
           onClick={closeSidebar}
           aria-hidden="true"
         />
       )}
 
       {/* Sidebar Panel */}
-      <aside className={`favourites-sidebar ${isSidebarOpen ? 'is-open' : ''}`}>
+      <aside className={`favourites-sidebar ${isSidebarOpen ? "is-open" : ""}`}>
         {/* Header */}
         <div className="favourites-sidebar__header">
           <h2 className="favourites-sidebar__title">
@@ -66,7 +113,7 @@ function FavouritesSidebar() {
             Favourites
             <span className="title-count">({favouritesCount})</span>
           </h2>
-          <button 
+          <button
             className="close-button"
             onClick={closeSidebar}
             aria-label="Close favourites"
@@ -82,7 +129,10 @@ function FavouritesSidebar() {
             <div className="favourites-empty">
               <div className="empty-icon">♡</div>
               <h3>No Favourites Yet</h3>
-              <p>Click the heart icon on any property to add it to your favourites</p>
+              <p>
+                Click the heart icon on any property to add it to your
+                favourites
+              </p>
             </div>
           ) : (
             // Favourites List
@@ -97,11 +147,13 @@ function FavouritesSidebar() {
                   >
                     {/* Property Image */}
                     <div className="favourite-item__image">
-                      <img 
+                      <img
                         src={getImageUrl(property.picture)}
                         alt={property.location}
                       />
-                      <span className="favourite-item__type">{property.type}</span>
+                      <span className="favourite-item__type">
+                        {property.type}
+                      </span>
                     </div>
 
                     {/* Property Info */}
@@ -132,10 +184,7 @@ function FavouritesSidebar() {
 
               {/* Clear All Button */}
               <div className="favourites-sidebar__footer">
-                <button 
-                  className="clear-all-button"
-                  onClick={handleClearAll}
-                >
+                <button className="clear-all-button" onClick={handleClearAll}>
                   Clear All Favourites
                 </button>
               </div>
@@ -144,7 +193,7 @@ function FavouritesSidebar() {
         </div>
       </aside>
     </>
-  )
+  );
 }
 
-export default FavouritesSidebar
+export default FavouritesSidebar;
