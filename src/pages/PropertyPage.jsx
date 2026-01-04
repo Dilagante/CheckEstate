@@ -20,14 +20,14 @@ function PropertyPage() {
   // Check if this property is favourited
   const favourited = property ? isFavourite(property.id) : false;
 
-  // ✅ Scroll to top when property changes
+  // Scroll to top when property changes
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-  }, [id]); // Re-run when property ID changes
+  }, [id]);
 
   // If property not found
   if (!property) {
