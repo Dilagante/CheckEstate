@@ -20,6 +20,15 @@ function PropertyPage() {
   // Check if this property is favourited
   const favourited = property ? isFavourite(property.id) : false;
 
+  // ✅ Scroll to top when property changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [id]); // Re-run when property ID changes
+
   // If property not found
   if (!property) {
     return (
@@ -135,12 +144,25 @@ function PropertyPage() {
 
                 <div className="sidebar-actions">
                   {/* Updated Favourite Button with Logic */}
-                  <button 
-                    className={`btn-favourite-large ${favourited ? 'is-favourited' : ''}`}
+                  <button
+                    className={`btn-favourite-large ${
+                      favourited ? "is-favourited" : ""
+                    }`}
                     onClick={handleFavouriteClick}
-                    aria-label={favourited ? 'Remove from favourites' : 'Add to favourites'}
-                    title={favourited ? 'Remove from favourites' : 'Add to favourites'}>
-                    {favourited ? '♥ Remove from Favourites' : '♡ Add to Favourites'}
+                    aria-label={
+                      favourited
+                        ? "Remove from favourites"
+                        : "Add to favourites"
+                    }
+                    title={
+                      favourited
+                        ? "Remove from favourites"
+                        : "Add to favourites"
+                    }
+                  >
+                    {favourited
+                      ? "♥ Remove from Favourites"
+                      : "♡ Add to Favourites"}
                   </button>
                   <button className="btn-contact">📧 Contact Agent</button>
                 </div>
