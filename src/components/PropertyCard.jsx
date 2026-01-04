@@ -27,29 +27,64 @@ function PropertyCard({ property }) {
 
   // Drag and Drop Handlers
   const handleDragStart = (e) => {
-    // Store property data in drag event
     e.dataTransfer.effectAllowed = "copy";
     e.dataTransfer.setData("application/json", JSON.stringify(property));
 
-    // Add dragging class for visual feedback
-    e.currentTarget.classList.add("is-dragging");
+    // Create compact drag preview badge
+    const dragPreview = document.createElement("div");
+    dragPreview.innerHTML = `
+      <div style="
+        background: linear-gradient(135deg, #6944efff 0%, #9926dcff 100%);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 16px;
+        font-weight:  600;
+        box-shadow: 0 12px 40px rgba(239, 68, 68, 0.5);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        min-width: 200px;
+      ">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 16px;">
+          <span style="font-size: 24px;">🏠</span>
+          <span>${property.location.split(",")[0]}</span>
+        </div>
+        <div style="font-size:  14px; opacity: 0.9;">
+          ${formatPrice(property.price)} • ${property.bedrooms} bed
+        </div>
+        <div style="font-size:  12px; opacity: 0.8; text-align: center; margin-top: 4px;">
+          Drop on ♥ to save
+        </div>
+      </div>
+    `;
+    dragPreview.style.position = "absolute";
+    dragPreview.style.top = "-10000px";
 
-    // Optional: Create custom drag image
-    const dragImage = e.currentTarget.querySelector(".property-card__image");
-    if (dragImage) {
-      e.dataTransfer.setDragImage(dragImage, 50, 50);
-    }
+    document.body.appendChild(dragPreview);
+
+    const preview = dragPreview.firstElementChild;
+    e.dataTransfer.setDragImage(
+      preview,
+      preview.offsetWidth / 2,
+      preview.offsetHeight / 2
+    );
+
+    setTimeout(() => {
+      document.body.removeChild(dragPreview);
+    }, 0);
+
+    e.currentTarget.classList.add("is-dragging");
   };
 
   const handleDragEnd = (e) => {
-    // Remove dragging class
     e.currentTarget.classList.remove("is-dragging");
   };
 
   return (
     <div
       className="property-card"
-      draggable="true" // ✅ Make card draggable
+      draggable="true" // Make card draggable
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
     >

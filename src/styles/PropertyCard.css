@@ -173,8 +173,8 @@
 }
 
 .property-card__btn--favourite:hover {
-  background:   #fee2e2;
-  transform:   scale(1.1);
+  background: #fee2e2;
+  transform: scale(1.1);
   border-color: #fecaca;
 }
 
@@ -184,7 +184,7 @@
 
 /* Favourited State */
 .property-card__btn--favourite.is-favourited {
-  background:  #ef4444;
+  background: #ef4444;
   color: white;
   border-color: #dc2626;
   animation: heartBeat 0.3s ease;
@@ -216,6 +216,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Dragging state */
+.property-card.is-dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+  transform: scale(0.95);
+  transition: all 0.2s ease;
+}
+
+.property-card[draggable="true"] {
+  cursor: grab;
+}
+
+.property-card[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Hover state when draggable */
+.property-card[draggable="true"]:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
 }
 
 /*RESPONSIVE STYLES*/
