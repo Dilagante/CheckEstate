@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CheckEstate</title>
+  <script>
+    // Redirect to index.html with the path as a query parameter
+    const path = window.location.pathname. slice(1);
+    window.location.replace(
+      window.location.origin + '/CheckEstate/?redirect=' + path
+    );
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>

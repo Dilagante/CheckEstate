@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/CheckEstate/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Estate - Find Your Dream Spot</title>
+    <script>
+      // Handle redirect from 404.html
+      (function () {
+        const redirect = new URLSearchParams(window.location.search).get(
+          "redirect"
+        );
+        if (redirect) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/CheckEstate/assets/index-NfkNd1_-.js"></script>
+    <link rel="stylesheet" crossorigin href="/CheckEstate/assets/index-Coy8lM-m.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
