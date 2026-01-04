@@ -6,15 +6,13 @@ import { FavouritesProvider } from './context/FavouritesContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
-/**
- * Main App Component with Routing
- */
+
 function App() {
   return (
     <FavouritesProvider>
     <Router>
       <ScrollToTop />
-      <Routes>
+      <Routes basename="/CheckEstate">
         {/* Search/Home Page */}
         <Route path="/" element={<SearchPage />} />
         
