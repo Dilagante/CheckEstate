@@ -9,6 +9,7 @@ import '../styles/SearchForm.css'
 
 function SearchForm({ onSearch }) {
   // Form state
+    const [quickSearch, setQuickSearch] = useState('')
   const [propertyType, setPropertyType] = useState(null)
   const [minPrice, setMinPrice] = useState(null)
   const [maxPrice, setMaxPrice] = useState(null)
@@ -100,6 +101,7 @@ function SearchForm({ onSearch }) {
   /* eslint-disable-next-line react-hooks/exhaustive-deps */
   useEffect(() => {
     const searchCriteria = {
+      quickSearch:  quickSearch.trim(),
       propertyType:  propertyType?. value || 'any',
       minPrice: minPrice?.value || 0,
       maxPrice: maxPrice?. value || Infinity,
@@ -111,11 +113,11 @@ function SearchForm({ onSearch }) {
     }
 
     onSearch(searchCriteria)
-  }, [propertyType, minPrice, maxPrice, minBedrooms, maxBedrooms, dateFrom, dateTo, postcode])
-  // Note: onSearch is intentionally omitted from dependencies to prevent infinite loop
+  }, [quickSearch,propertyType, minPrice, maxPrice, minBedrooms, maxBedrooms, dateFrom, dateTo, postcode])
 
   // Reset form
   const handleReset = () => {
+    setQuickSearch('')
     setPropertyType(null)
     setMinPrice(null)
     setMaxPrice(null)
@@ -128,6 +130,7 @@ function SearchForm({ onSearch }) {
 
   // Count active filters
   const activeFiltersCount = [
+    quickSearch,
     propertyType,
     minPrice,
     maxPrice,
@@ -144,9 +147,34 @@ function SearchForm({ onSearch }) {
         <h2 className="search-form__title">
           🔍 Search Properties
         </h2>
-        <p className="search-form__subtitle">
-          Filters apply automatically as you select options
-        </p>
+              <div className="quick-search-container">
+        <div className="quick-search-wrapper">
+          <input
+            type="text"
+            className="quick-search-input"
+            placeholder="Location, price, bedrooms, type..."
+            value={quickSearch}
+            onChange={(e) => setQuickSearch(e.target. value)}
+            aria-label="Quick search properties"
+          />
+          {quickSearch && (
+            <button
+              className="quick-search-clear"
+              onClick={() => setQuickSearch('')}
+              aria-label="Clear search"
+              title="Clear search"
+              type="button"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+        {quickSearch && (
+          <p className="quick-search-hint">
+            Searching for: <strong>{quickSearch}</strong>
+          </p>
+        )}
+      </div>
       </div>
 
       <div className="search-form__content">
