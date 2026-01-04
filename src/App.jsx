@@ -10,9 +10,9 @@ import './App.css'
 function App() {
   return (
     <FavouritesProvider>
-    <Router>
+    <Router basename="/CheckEstate">
       <ScrollToTop />
-      <Routes basename="/CheckEstate">
+      <Routes>
         {/* Search/Home Page */}
         <Route path="/" element={<SearchPage />} />
         
