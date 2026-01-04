@@ -310,6 +310,10 @@
   .reset-btn {
     min-width: 160px;
   }
+
+  .quick-search-input {
+    width: 60%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -348,6 +352,7 @@
   .quick-search-input {
     padding: 0.875rem 3rem 0.875rem 1rem;
     font-size: 1rem;
+    width: 80%;
   }
 
   .quick-search-clear {
@@ -407,6 +412,7 @@
   .quick-search-input {
     padding: 0.75rem 2.75rem 0.75rem 0.875rem;
     font-size: 0.9375rem;
+    width: 100%;
   }
 
   .quick-search-hint {

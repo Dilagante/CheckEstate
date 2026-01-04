@@ -30,6 +30,7 @@
 /* Results Section */
 .search-page__results {
   margin-top: 2rem;
+  margin: auto 2rem;
 }
 
 /* Footer */
