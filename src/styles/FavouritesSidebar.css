@@ -328,6 +328,151 @@
   transform: translateY(-2px);
 }
 
+/* Add to existing file */
+
+/* Drag Hint Tooltip */
+.drag-hint {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 15px;
+  animation: bounceIn 0.5s ease, float 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10001;
+}
+
+.drag-hint-arrow {
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  font-size: 24px;
+  color: #2563eb;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.drag-hint-text {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius:  12px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+  position: relative;
+}
+
+/* Pulsing glow effect */
+.drag-hint-text::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border-radius: 12px;
+  opacity: 0.5;
+  filter: blur(8px);
+  z-index: -1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform:  translateY(20px) scale(0.8);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform:  translateY(0) scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity:  0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Hide hint on mobile (too small for drag & drop) */
+@media (max-width: 768px) {
+  .drag-hint {
+    display: none;
+  }
+}
+
+/* Enhanced drag-over state with hint text */
+.favourites-toggle.drag-over {
+  transform: scale(1.3);
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 0 40px rgba(239, 68, 68, 0.8);
+  animation: pulse 0.6s infinite, wiggle 0.3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: scale(1.3) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.3) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.3) rotate(5deg);
+  }
+}
+
+/* Drop success with bigger animation */
+.favourites-toggle.drop-success {
+  animation: successPop 0.6s ease;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.4) rotate(10deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(-10deg);
+  }
+  75% {
+    transform: scale(1.3) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Update empty state text */
+.favourites-empty p strong {
+  color: #ef4444;
+  font-weight: 700;
+}
+
 /* RESPONSIVE STYLES */
 
 @media (max-width: 768px) {

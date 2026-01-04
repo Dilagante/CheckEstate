@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useFavourites } from "../context/FavouritesContext";
 import { getImageUrl } from "../utils/imageUrl";
@@ -17,6 +17,26 @@ function FavouritesSidebar() {
   } = useFavourites();
 
   const [isDragOver, setIsDragOver] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    const hasSeenHint = localStorage.getItem("hasSeenDragHint");
+
+    if (!hasSeenHint) {
+      // Show hint after 2 seconds
+      const timer = setTimeout(() => {
+        setShowHint(true);
+
+        // Hide hint after 5 seconds
+        setTimeout(() => {
+          setShowHint(false);
+          localStorage.setItem("hasSeenDragHint", "true");
+        }, 5000);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Format price
   const formatPrice = (price) => {
@@ -46,6 +66,7 @@ function FavouritesSidebar() {
     e.preventDefault();
     e.dataTransfer.dropEffect = "copy";
     setIsDragOver(true);
+    setShowHint(false);
   };
 
   const handleDragLeave = (e) => {
@@ -77,6 +98,18 @@ function FavouritesSidebar() {
     }
   };
 
+  // Show hint temporarily on hover
+  const handleMouseEnter = () => {
+    const hasSeenHint = localStorage.getItem("hasSeenDragHint");
+    if (hasSeenHint && !isDragOver && favouritesCount === 0) {
+      setShowHint(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setShowHint(false);
+  };
+
   return (
     <>
       {/* Toggle Button */}
@@ -86,12 +119,21 @@ function FavouritesSidebar() {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         aria-label="Toggle favourites sidebar"
         title="View favourites"
       >
         <span className="favourites-icon">♥</span>
         {favouritesCount > 0 && (
           <span className="favourites-count-badge">{favouritesCount}</span>
+        )}
+
+        {showHint && (
+          <div className="drag-hint">
+            <div className="drag-hint-arrow">↓</div>
+            <div className="drag-hint-text">Drag properties here!</div>
+          </div>
         )}
       </button>
 
