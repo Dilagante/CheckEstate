@@ -152,14 +152,14 @@ function SearchForm({ onSearch }) {
     <div className="search-form">
       <div className="search-form__header">
         <h2 className="search-form__title">
-          🔍 Search Properties
+          Search Properties
         </h2>
               <div className="quick-search-container">
         <div className="quick-search-wrapper">
           <input
             type="text"
             className="quick-search-input"
-            placeholder="Location, price, bedrooms, type..."
+            placeholder="🔍 Location, price, bedrooms, type..."
             value={quickSearch}
             onChange={(e) => setQuickSearch(e.target. value)}
             aria-label="Quick search properties"
