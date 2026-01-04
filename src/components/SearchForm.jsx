@@ -19,6 +19,9 @@ function SearchForm({ onSearch }) {
   const [dateTo, setDateTo] = useState(null)
   const [postcode, setPostcode] = useState(null)
 
+  const [isFiltersExpanded, setIsFiltersExpanded] = useState(true)
+
+
   // Property Type options
   const propertyTypeOptions = [
     { value:  'any', label: '🏘️ Any Type' },
@@ -141,6 +144,10 @@ function SearchForm({ onSearch }) {
     postcode
   ].filter(Boolean).length
 
+  const toggleFilters = () => {
+  setIsFiltersExpanded(!isFiltersExpanded)
+  }
+
   return (
     <div className="search-form">
       <div className="search-form__header">
@@ -175,8 +182,33 @@ function SearchForm({ onSearch }) {
           </p>
         )}
       </div>
+      
+        <div className="filters-toggle-container">
+          <Button
+            variant="outline-primary"
+            onClick={toggleFilters}
+            className="filters-toggle-btn"
+            aria-expanded={isFiltersExpanded}
+            aria-controls="advanced-filters"
+          >
+            <span className="toggle-icon">
+              {isFiltersExpanded ? '⬇️' : '➡️'}
+            </span>
+            {isFiltersExpanded ? 'Hide' : 'Show'} Advanced Filters
+            {activeFiltersCount > 0 && (
+              <span className="active-filters-badge">
+                {activeFiltersCount}
+              </span>
+            )}
+          </Button>
+        </div>
       </div>
 
+      
+      <div 
+        id="advanced-filters"
+        className={`search-form__collapsible ${isFiltersExpanded ? 'expanded' : 'collapsed'}`}
+      >
       <div className="search-form__content">
         <Row className="g-3">
           {/* Property Type */}
@@ -360,6 +392,7 @@ function SearchForm({ onSearch }) {
           </Button>
         </div>
       )}
+    </div>
     </div>
   )
 }
