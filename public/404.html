@@ -4,14 +4,21 @@
   <meta charset="utf-8">
   <title>CheckEstate</title>
   <script>
-    // Redirect to index.html with the path as a query parameter
-    const path = window.location.pathname. slice(1);
-    window.location.replace(
-      window.location.origin + '/CheckEstate/?redirect=' + path
-    );
+    // Only redirect if there's actually a path (not root)
+    const path = window.location.pathname. replace('/CheckEstate/', '').replace('/CheckEstate', '');
+    
+    if (path && path !== '/') {
+      // Redirect non-root paths to index.html with path as query
+      window.location.replace(
+        window.location.origin + '/CheckEstate/? redirect=' + encodeURIComponent(path)
+      );
+    } else {
+      // For root, just go to index
+      window.location.replace(window.location.origin + '/CheckEstate/');
+    }
   </script>
 </head>
 <body>
-  Redirecting...
+  <p>Redirecting... </p>
 </body>
 </html>
