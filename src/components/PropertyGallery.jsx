@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import { getImageUrl } from '../utils/imageUrl'
 import '../styles/PropertyGallery.css'
 
 
@@ -35,7 +36,7 @@ function PropertyGallery({ images = [], location }) {
       {/* Main Large Image */}
       <div className="gallery-main-image">
         <img 
-          src={images[selectedImage]} 
+          src={getImageUrl(images[selectedImage])}
           alt={`${location} - Image ${selectedImage + 1}`}
           className="main-image"
         />
@@ -100,7 +101,7 @@ function PropertyGallery({ images = [], location }) {
               aria-label={`View image ${index + 1}`}
             >
               <img 
-                src={image} 
+                src={getImageUrl(image)}
                 alt={`${location} - Thumbnail ${index + 1}`}
               />
               {index === selectedImage && (

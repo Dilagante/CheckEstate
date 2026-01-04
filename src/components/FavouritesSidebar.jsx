@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useFavourites } from '../context/FavouritesContext'
+import { getImageUrl } from '../utils/imageUrl'
 import '../styles/FavouritesSidebar.css'
 
 function FavouritesSidebar() {
@@ -97,7 +98,7 @@ function FavouritesSidebar() {
                     {/* Property Image */}
                     <div className="favourite-item__image">
                       <img 
-                        src={property.picture} 
+                        src={getImageUrl(property.picture)}
                         alt={property.location}
                       />
                       <span className="favourite-item__type">{property.type}</span>

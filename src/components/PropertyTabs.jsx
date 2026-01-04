@@ -1,11 +1,12 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import PropTypes from 'prop-types'
+import { getImageUrl } from '../utils/imageUrl'
 import 'react-tabs/style/react-tabs.css'
 import '../styles/PropertyTabs.css'
 
 
 function PropertyTabs({ property }) {
-    
+
   // Generate Google Maps embed URL
   const getMapsUrl = (location) => {
     const encodedLocation = encodeURIComponent(location)
@@ -52,7 +53,7 @@ function PropertyTabs({ property }) {
             {property.floorPlan ?  (
               <div className="floor-plan-container">
                 <img 
-                  src={property. floorPlan} 
+                  src={getImageUrl(property.floorPlan)}
                   alt={`Floor plan for ${property.location}`}
                   className="floor-plan-image"
                 />

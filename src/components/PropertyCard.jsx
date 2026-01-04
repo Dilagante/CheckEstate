@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useFavourites } from '../context/FavouritesContext'
+import { getImageUrl } from '../utils/imageUrl'
 import PropTypes from 'prop-types'
 import '../styles/PropertyCard.css'
 
@@ -33,7 +34,7 @@ function PropertyCard({ property }) {
       <Link to={`/property/${property.id}`} className="property-card__image-link">
         <div className="property-card__image-container">
           <img 
-            src={property.picture} 
+            src={getImageUrl(property.picture)} 
             alt={property.location}
             className="property-card__image"
           />
