@@ -5,29 +5,9 @@
 [![Live Demo](https://img.shields.io/badge/demo-live-green)](https://Dilagante.github.io/CheckEstate/)
 [![React](https://img.shields.io/badge/React-18.3-blue)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.0-purple)](https://vitejs.dev/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](#)
 
 **🌐 Live Demo:** [https://Dilagante.github.io/CheckEstate/](https://Dilagante.github.io/CheckEstate/)
-
----
-
-## 📋 Table of Contents
-
-- [Screenshots](#-screenshots)
-- [Features](#-features)
-- [Quick Start](#-quick-start)
-- [Technology Stack](#️-technology-stack)
-- [Project Structure](#-project-structure)
-- [Testing](#-testing)
-- [Deployment](#-deployment)
-- [Responsive Design](#-responsive-design)
-- [Key Features Explained](#-key-features-explained)
-- [Architecture Decisions](#️-architecture-decisions)
-- [Known Issues](#-known-issues--limitations)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Author](#-author)
-- [Acknowledgments](#-acknowledgments)
 
 ---
 
@@ -41,9 +21,6 @@
 
 ### Favourites Sidebar
 ![Favourites](screenshots/favourites.png)
-
-### Mobile Responsive
-![Mobile View](screenshots/mobile.png)
 
 ---
 
