@@ -6,7 +6,7 @@ import "../styles/PropertyCard.css";
 
 function PropertyCard({ property }) {
   //Save favourites context
-  const { isFavourite, toggleFavourite, addFavourite } = useFavourites();
+  const { isFavourite, toggleFavourite} = useFavourites();
   const favourited = isFavourite(property.id);
 
   // Format price with commas and £ symbol
