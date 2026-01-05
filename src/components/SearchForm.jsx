@@ -232,6 +232,8 @@ function SearchForm({ onSearch }) {
                   styles={customSelectStyles}
                   className="react-select-container"
                   classNamePrefix="react-select"
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
@@ -252,6 +254,8 @@ function SearchForm({ onSearch }) {
                   styles={customSelectStyles}
                   className="react-select-container"
                   classNamePrefix="react-select"
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
@@ -272,6 +276,8 @@ function SearchForm({ onSearch }) {
                   styles={customSelectStyles}
                   className="react-select-container"
                   classNamePrefix="react-select"
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
@@ -292,6 +298,8 @@ function SearchForm({ onSearch }) {
                   styles={customSelectStyles}
                   className="react-select-container"
                   classNamePrefix="react-select"
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
@@ -312,6 +320,8 @@ function SearchForm({ onSearch }) {
                   styles={customSelectStyles}
                   className="react-select-container"
                   classNamePrefix="react-select"
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
@@ -332,6 +342,8 @@ function SearchForm({ onSearch }) {
                   styles={customSelectStyles}
                   className="react-select-container"
                   classNamePrefix="react-select"
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
@@ -354,6 +366,8 @@ function SearchForm({ onSearch }) {
                   isClearable
                   className="form-control datepicker-input"
                   maxDate={new Date()}
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
@@ -377,6 +391,8 @@ function SearchForm({ onSearch }) {
                   isClearable
                   className="form-control datepicker-input"
                   maxDate={new Date()}
+                  menuPortalTarget={document.body}
+                  menuPosition="fixed"
                 />
               </div>
             </Col>
