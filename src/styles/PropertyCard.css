@@ -145,12 +145,12 @@
 /* Primary Button (View Details) */
 .property-card__btn--primary {
   flex: 1;
-  background: #2563eb;
+  background: #5025eb;
   color: white;
 }
 
 .property-card__btn--primary:hover {
-  background: #1d4ed8;
+  background: #651dd8;
   transform: translateY(-1px);
 }
 

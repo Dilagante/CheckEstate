@@ -5,6 +5,7 @@ import Hero from '../components/Hero'
 import SearchForm from '../components/SearchForm'
 import PropertyList from '../components/PropertyList'
 import FavouritesSidebar from '../components/FavouritesSidebar'
+import About from '../components/About'
 import propertiesData from '../data/properties.json'
 import '../styles/SearchPage.css'
 
@@ -125,6 +126,10 @@ function SearchPage() {
           </div>
         </Container>
       </section>
+
+
+        <About />
+
 
       {/* Footer */}
       <footer className="search-page__footer">
