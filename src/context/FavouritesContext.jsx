@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 const FavouritesContext = createContext();
 
+/* eslint-disable react-refresh/only-export-components */
 export const useFavourites = () => {
   const context = useContext(FavouritesContext);
   return context;

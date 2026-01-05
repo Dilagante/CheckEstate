@@ -37,7 +37,7 @@ function PropertyPage() {
         <Container className="property-not-found">
           <div className="not-found-content">
             <h1>🏠 Property Not Found</h1>
-            <p>Sorry, we couldn't find the property you're looking for.</p>
+            <p>Sorry, we couldn&apos;t find the property you&apos;re looking for.</p>
             <Link to="/" className="btn btn-primary">
               ← Back to Search
             </Link>

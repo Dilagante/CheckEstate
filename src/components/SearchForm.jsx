@@ -99,7 +99,7 @@ function SearchForm({ onSearch }) {
   };
 
   // Auto-search whenever any filter changes
-  /* eslint-disable-next-line react-hooks/exhaustive-deps */
+
   useEffect(() => {
     const searchCriteria = {
       quickSearch: quickSearch.trim(),
@@ -114,7 +114,7 @@ function SearchForm({ onSearch }) {
     };
 
     onSearch(searchCriteria);
-  }, [
+  }, [onSearch,
     quickSearch,
     propertyType,
     minPrice,

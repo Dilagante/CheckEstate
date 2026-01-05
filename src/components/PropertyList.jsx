@@ -1,14 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import PropertyCard from "./PropertyCard";
 import "../styles/PropertyList.css";
 
+  // Helper function to convert month name to number
+  const getMonthNumber = (monthName) => {
+    const months = {
+      January: 0,
+      February: 1,
+      March: 2,
+      April: 3,
+      May: 4,
+      June: 5,
+      July: 6,
+      August: 7,
+      September: 8,
+      October: 9,
+      November: 10,
+      December: 11,
+    };
+    return months[monthName] || 0;
+  };
+
 function PropertyList({ properties = [], loading = false }) {
   const [sortBy, setSortBy] = useState("default");
-  const [sortedProperties, setSortedProperties] = useState([]);
 
   // Sort properties based on selected option
-  useEffect(() => {
+  const sortedProperties = useMemo(() => {
     let sorted = [...properties];
 
     switch (sortBy) {
@@ -59,27 +77,8 @@ function PropertyList({ properties = [], loading = false }) {
         break;
     }
 
-    setSortedProperties(sorted);
+    return sorted;
   }, [properties, sortBy]);
-
-  // Helper function to convert month name to number
-  const getMonthNumber = (monthName) => {
-    const months = {
-      January: 0,
-      February: 1,
-      March: 2,
-      April: 3,
-      May: 4,
-      June: 5,
-      July: 6,
-      August: 7,
-      September: 8,
-      October: 9,
-      November: 10,
-      December: 11,
-    };
-    return months[monthName] || 0;
-  };
 
   // Loading state
   if (loading) {

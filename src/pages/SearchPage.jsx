@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Container } from "react-bootstrap";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -13,11 +13,9 @@ function SearchPage() {
   const [filteredProperties, setFilteredProperties] = useState(
     propertiesData.properties
   );
-  const [searchCriteria, setSearchCriteria] = useState(null);
 
   // Handle search
-  const handleSearch = (criteria) => {
-    setSearchCriteria(criteria);
+  const handleSearch = useCallback((criteria) => {
 
     let filtered = [...propertiesData.properties];
 
@@ -133,7 +131,7 @@ function SearchPage() {
     }
 
     setFilteredProperties(filtered);
-  };
+  }, [setFilteredProperties]);
 
   return (
     <div className="search-page">
