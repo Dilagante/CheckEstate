@@ -4,6 +4,7 @@ import "../styles/Hero.css";
 function Hero() {
   return (
     <section className="hero">
+      <div className="hero-overlay"></div>
       <Container className="hero-content">
         <h1 className="hero-title">Find Your Perfect Home</h1>
         <p className="hero-subtitle">
