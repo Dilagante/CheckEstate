@@ -4,20 +4,34 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/CheckEstate/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Content Security Policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval';
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        img-src 'self' data: https:;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src 'self';
+        frame-src 'self' https://maps.google.com https://www.google.com;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        frame-ancestors 'none';
+      "
+    />
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
     <title>Check Estate - Find Your Dream Spot</title>
-    <script>
-      // Handle redirect from 404.html
-      (function () {
-        const redirect = new URLSearchParams(window.location.search).get(
-          "redirect"
-        );
-        if (redirect) {
-          history.replaceState(null, null, redirect);
-        }
-      })();
-    </script>
-    <script type="module" crossorigin src="/CheckEstate/assets/index-C0IWOiBx.js"></script>
-    <link rel="stylesheet" crossorigin href="/CheckEstate/assets/index-DwyxMuLZ.css">
+    <script type="module" crossorigin src="/CheckEstate/assets/index-DY0RY03R.js"></script>
+    <link rel="stylesheet" crossorigin href="/CheckEstate/assets/index-m7WmZJOA.css">
   </head>
   <body>
     <div id="root"></div>
