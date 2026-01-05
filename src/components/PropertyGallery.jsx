@@ -1,14 +1,13 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
-import { getImageUrl } from '../utils/imageUrl'
-import '../styles/PropertyGallery.css'
-
+import { useState } from "react";
+import PropTypes from "prop-types";
+import { getImageUrl } from "../utils/imageUrl";
+import "../styles/PropertyGallery.css";
 
 function PropertyGallery({ images = [], location }) {
-  const [selectedImage, setSelectedImage] = useState(0)
+  const [selectedImage, setSelectedImage] = useState(0);
 
   // Fallback if no images provided
-  if (! images || images.length === 0) {
+  if (!images || images.length === 0) {
     return (
       <div className="property-gallery">
         <div className="gallery-main-image">
@@ -18,24 +17,24 @@ function PropertyGallery({ images = [], location }) {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   // Navigate to previous image
   const handlePrevious = () => {
-    setSelectedImage((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-  }
+    setSelectedImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
 
   // Navigate to next image
   const handleNext = () => {
-    setSelectedImage((prev) => (prev === images.length - 1 ?  0 : prev + 1))
-  }
+    setSelectedImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="property-gallery" tabIndex={0}>
       {/* Main Large Image */}
       <div className="gallery-main-image">
-        <img 
+        <img
           src={getImageUrl(images[selectedImage])}
           alt={`${location} - Image ${selectedImage + 1}`}
           className="main-image"
@@ -49,14 +48,14 @@ function PropertyGallery({ images = [], location }) {
               onClick={handlePrevious}
               aria-label="Previous image"
             >
-              <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 strokeWidth="2"
-                strokeLinecap="round" 
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <polyline points="15 18 9 12 15 6"></polyline>
@@ -68,14 +67,14 @@ function PropertyGallery({ images = [], location }) {
               onClick={handleNext}
               aria-label="Next image"
             >
-              <svg 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
                 strokeWidth="2"
-                strokeLinecap="round" 
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -96,11 +95,11 @@ function PropertyGallery({ images = [], location }) {
           {images.map((image, index) => (
             <button
               key={index}
-              className={`thumbnail ${index === selectedImage ? 'active' : ''}`}
+              className={`thumbnail ${index === selectedImage ? "active" : ""}`}
               onClick={() => setSelectedImage(index)}
               aria-label={`View image ${index + 1}`}
             >
-              <img 
+              <img
                 src={getImageUrl(image)}
                 alt={`${location} - Thumbnail ${index + 1}`}
               />
@@ -114,12 +113,12 @@ function PropertyGallery({ images = [], location }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 PropertyGallery.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   location: PropTypes.string.isRequired,
-}
+};
 
-export default PropertyGallery
+export default PropertyGallery;

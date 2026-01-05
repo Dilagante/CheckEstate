@@ -1,5 +1,5 @@
-import { Container } from 'react-bootstrap'
-import '../styles/About.css'
+import { Container } from "react-bootstrap";
+import "../styles/About.css";
 
 function About() {
   return (
@@ -11,7 +11,7 @@ function About() {
         </p>
       </Container>
     </section>
-  )
+  );
 }
 
-export default About
+export default About;

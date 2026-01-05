@@ -1,17 +1,15 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import PropTypes from 'prop-types'
-import { getImageUrl } from '../utils/imageUrl'
-import 'react-tabs/style/react-tabs.css'
-import '../styles/PropertyTabs.css'
-
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import PropTypes from "prop-types";
+import { getImageUrl } from "../utils/imageUrl";
+import "react-tabs/style/react-tabs.css";
+import "../styles/PropertyTabs.css";
 
 function PropertyTabs({ property }) {
-
   // Generate Google Maps embed URL
   const getMapsUrl = (location) => {
-    const encodedLocation = encodeURIComponent(location)
-    return `https://maps.google.com/maps?q=${encodedLocation}&output=embed`
-  }
+    const encodedLocation = encodeURIComponent(location);
+    return `https://maps.google.com/maps?q=${encodedLocation}&output=embed`;
+  };
 
   return (
     <div className="property-tabs-container">
@@ -38,10 +36,15 @@ function PropertyTabs({ property }) {
 
             <h4>Key Features</h4>
             <ul className="features-list">
-              <li>🛏️ {property.bedrooms} Bedroom{property.bedrooms !== 1 ? 's' :  ''}</li>
+              <li>
+                🛏️ {property.bedrooms} Bedroom
+                {property.bedrooms !== 1 ? "s" : ""}
+              </li>
               <li>🏠 {property.type}</li>
               <li>📋 {property.tenure}</li>
-              <li>📅 {property.added.month} {property.added.year}</li>
+              <li>
+                📅 {property.added.month} {property.added.year}
+              </li>
             </ul>
           </div>
         </TabPanel>
@@ -50,9 +53,9 @@ function PropertyTabs({ property }) {
         <TabPanel>
           <div className="tab-content">
             <h3>Floor Plan</h3>
-            {property.floorPlan ?  (
+            {property.floorPlan ? (
               <div className="floor-plan-container">
-                <img 
+                <img
                   src={getImageUrl(property.floorPlan)}
                   alt={`Floor plan for ${property.location}`}
                   className="floor-plan-image"
@@ -81,7 +84,7 @@ function PropertyTabs({ property }) {
                 src={getMapsUrl(property.location)}
                 width="100%"
                 height="450"
-                style={{ border: 0, borderRadius: '8px' }}
+                style={{ border: 0, borderRadius: "8px" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -92,30 +95,31 @@ function PropertyTabs({ property }) {
             <div className="location-info">
               <h4>About the Area</h4>
               <p>
-                This property is located in {property.location. split(',').pop().trim()}, 
-                offering excellent transport links and local amenities. 
+                This property is located in{" "}
+                {property.location.split(",").pop().trim()}, offering excellent
+                transport links and local amenities.
               </p>
             </div>
           </div>
         </TabPanel>
       </Tabs>
     </div>
-  )
+  );
 }
 
 PropertyTabs.propTypes = {
   property: PropTypes.shape({
-    description: PropTypes.string. isRequired,
+    description: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    floorPlan:  PropTypes.string,
-    bedrooms: PropTypes.number. isRequired,
+    floorPlan: PropTypes.string,
+    bedrooms: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
-    tenure: PropTypes.string. isRequired,
+    tenure: PropTypes.string.isRequired,
     added: PropTypes.shape({
       month: PropTypes.string.isRequired,
       year: PropTypes.number.isRequired,
     }).isRequired,
   }).isRequired,
-}
+};
 
-export default PropertyTabs
+export default PropertyTabs;

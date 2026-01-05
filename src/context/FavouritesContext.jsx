@@ -1,85 +1,85 @@
-import { createContext, useContext, useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { createContext, useContext, useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-const FavouritesContext = createContext()
+const FavouritesContext = createContext();
 
 export const useFavourites = () => {
-  const context = useContext(FavouritesContext)
-  return context
-}
+  const context = useContext(FavouritesContext);
+  return context;
+};
 
 export const FavouritesProvider = ({ children }) => {
   // Existing favourites state
   const [favourites, setFavourites] = useState(() => {
     try {
-      const savedFavourites = localStorage.getItem('checkEstateFavourites')
-      return savedFavourites ? JSON. parse(savedFavourites) : []
+      const savedFavourites = localStorage.getItem("checkEstateFavourites");
+      return savedFavourites ? JSON.parse(savedFavourites) : [];
     } catch (error) {
-      console.error('Error loading favourites from localStorage:', error)
-      return []
+      console.error("Error loading favourites from localStorage:", error);
+      return [];
     }
-  })
+  });
 
   // NEW:  Sidebar open/close state
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Save to localStorage whenever favourites change
   useEffect(() => {
     try {
-      localStorage.setItem('checkEstateFavourites', JSON.stringify(favourites))
+      localStorage.setItem("checkEstateFavourites", JSON.stringify(favourites));
     } catch (error) {
-      console.error('Error saving favourites to localStorage:', error)
+      console.error("Error saving favourites to localStorage:", error);
     }
-  }, [favourites])
+  }, [favourites]);
 
   // Add property to favourites
   const addFavourite = (property) => {
     setFavourites((prev) => {
       if (prev.some((fav) => fav.id === property.id)) {
-        return prev
+        return prev;
       }
-      return [... prev, property]
-    })
-  }
+      return [...prev, property];
+    });
+  };
 
   // Remove property from favourites
   const removeFavourite = (propertyId) => {
-    setFavourites((prev) => prev.filter((fav) => fav.id !== propertyId))
-  }
+    setFavourites((prev) => prev.filter((fav) => fav.id !== propertyId));
+  };
 
   // Clear all favourites
   const clearFavourites = () => {
-    setFavourites([])
-  }
+    setFavourites([]);
+  };
 
   // Check if property is favourited
   const isFavourite = (propertyId) => {
-    return favourites.some((fav) => fav.id === propertyId)
-  }
+    return favourites.some((fav) => fav.id === propertyId);
+  };
 
   // Toggle favourite
   const toggleFavourite = (property) => {
     if (isFavourite(property.id)) {
-      removeFavourite(property.id)
+      removeFavourite(property.id);
     } else {
-      addFavourite(property)
+      addFavourite(property);
     }
-  }
+  };
 
   //Open sidebar
   const openSidebar = () => {
-    setIsSidebarOpen(true)
-  }
+    setIsSidebarOpen(true);
+  };
 
   //Close sidebar
   const closeSidebar = () => {
-    setIsSidebarOpen(false)
-  }
+    setIsSidebarOpen(false);
+  };
 
   //Toggle sidebar
   const toggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev)
-  }
+    setIsSidebarOpen((prev) => !prev);
+  };
 
   const value = {
     favourites,
@@ -92,18 +92,18 @@ export const FavouritesProvider = ({ children }) => {
     isSidebarOpen,
     openSidebar,
     closeSidebar,
-    toggleSidebar
-  }
+    toggleSidebar,
+  };
 
   return (
     <FavouritesContext.Provider value={value}>
       {children}
     </FavouritesContext.Provider>
-  )
-}
+  );
+};
 
 FavouritesProvider.propTypes = {
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};
 
-export default FavouritesContext
+export default FavouritesContext;

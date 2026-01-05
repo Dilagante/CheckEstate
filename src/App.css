@@ -16,8 +16,6 @@ body {
   background-color: aliceblue;
   height: fit-content;
   min-width: 100%;
-  scroll-padding-top: 80px; 
-  scroll-behavior: smooth; 
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
 }
-
-

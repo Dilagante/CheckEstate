@@ -1,33 +1,38 @@
-import { expect, afterEach } from 'vitest'
-import { cleanup } from '@testing-library/react'
-import * as matchers from '@testing-library/jest-dom/matchers'
+import { expect, afterEach } from "vitest";
+import { cleanup } from "@testing-library/react";
+import * as matchers from "@testing-library/jest-dom/matchers";
 
 // Extend Vitest expect with Testing Library matchers
-expect.extend(matchers)
+expect.extend(matchers);
 
 // Cleanup after each test
 afterEach(() => {
-  cleanup()
-})
+  cleanup();
+});
 
 // Mock localStorage
 const localStorageMock = {
   getItem: (key) => {
-    return localStorageMock[key] || null
+    return localStorageMock[key] || null;
   },
   setItem: (key, value) => {
-    localStorageMock[key] = value
+    localStorageMock[key] = value;
   },
   removeItem: (key) => {
-    delete localStorageMock[key]
+    delete localStorageMock[key];
   },
   clear: () => {
     Object.keys(localStorageMock).forEach((key) => {
-      if (key !== 'getItem' && key !== 'setItem' && key !== 'removeItem' && key !== 'clear') {
-        delete localStorageMock[key]
+      if (
+        key !== "getItem" &&
+        key !== "setItem" &&
+        key !== "removeItem" &&
+        key !== "clear"
+      ) {
+        delete localStorageMock[key];
       }
-    })
+    });
   },
-}
+};
 
-global.localStorage = localStorageMock
+global.localStorage = localStorageMock;

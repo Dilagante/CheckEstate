@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import { useFavourites } from '../context/FavouritesContext'
-import '../styles/Header.css'
+import { useState } from "react";
+import { useFavourites } from "../context/FavouritesContext";
+import "../styles/Header.css";
 
 function Header() {
-  const { favouritesCount, openSidebar } = useFavourites()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { favouritesCount, openSidebar } = useFavourites();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Handle favourites link click
   const handleFavouritesClick = (e) => {
-    e.preventDefault()
-    openSidebar()
-    setIsMobileMenuOpen(false)
-  }
+    e.preventDefault();
+    openSidebar();
+    setIsMobileMenuOpen(false);
+  };
 
   // Toggle mobile menu
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   // Close mobile menu when clicking a link
   const handleLinkClick = () => {
-    setIsMobileMenuOpen(false)
-  }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header>
@@ -31,7 +31,7 @@ function Header() {
 
       {/* Hamburger Button */}
       <button
-        className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+        className={`hamburger ${isMobileMenuOpen ? "active" : ""}`}
         onClick={toggleMobileMenu}
         aria-label="Toggle navigation menu"
         aria-expanded={isMobileMenuOpen}
@@ -42,7 +42,7 @@ function Header() {
       </button>
 
       {/* Navigation Menu */}
-      <nav className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+      <nav className={`nav-menu ${isMobileMenuOpen ? "active" : ""}`}>
         <ul className="navbarul">
           <li className="navbarlink">
             <a href="#search" onClick={handleLinkClick}>
@@ -50,9 +50,9 @@ function Header() {
             </a>
           </li>
           <li className="navbarlink">
-            <a 
-              href="#favourites" 
-              onClick={handleFavouritesClick} 
+            <a
+              href="#favourites"
+              onClick={handleFavouritesClick}
               className="favourites-link"
             >
               Favourites
@@ -71,14 +71,14 @@ function Header() {
 
       {/* Overlay for mobile menu */}
       {isMobileMenuOpen && (
-        <div 
-          className="nav-overlay" 
+        <div
+          className="nav-overlay"
           onClick={() => setIsMobileMenuOpen(false)}
           aria-hidden="true"
         />
       )}
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
